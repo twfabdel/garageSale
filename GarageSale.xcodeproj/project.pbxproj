@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */; };
-		B8CF0D821FBF4E12002FE457 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D811FBF4E12002FE457 /* ViewController.swift */; };
 		B8CF0D851FBF4E12002FE457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D831FBF4E12002FE457 /* Main.storyboard */; };
 		B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */; };
 		B8CF0D8A1FBF4E12002FE457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D891FBF4E12002FE457 /* Assets.xcassets */; };
 		B8CF0D8D1FBF4E12002FE457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D8B1FBF4E12002FE457 /* LaunchScreen.storyboard */; };
+		B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D981FBF5607002FE457 /* SaleListViewController.swift */; };
+		B8CF0D9B1FBF57CD002FE457 /* NewSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D9A1FBF57CD002FE457 /* NewSaleViewController.swift */; };
+		B8CF0D9D1FBF5F8C002FE457 /* SaleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D9C1FBF5F8C002FE457 /* SaleListTableViewCell.swift */; };
+		B8CF0DA01FBFA51E002FE457 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0D9F1FBFA502002FE457 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B8CF0D7C1FBF4E12002FE457 /* GarageSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarageSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8CF0D811FBF4E12002FE457 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8CF0D841FBF4E12002FE457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8CF0D871FBF4E12002FE457 /* GarageSale.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GarageSale.xcdatamodel; sourceTree = "<group>"; };
 		B8CF0D891FBF4E12002FE457 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8CF0D8C1FBF4E12002FE457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8CF0D8E1FBF4E12002FE457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8CF0D981FBF5607002FE457 /* SaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListViewController.swift; sourceTree = "<group>"; };
+		B8CF0D9A1FBF57CD002FE457 /* NewSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSaleViewController.swift; sourceTree = "<group>"; };
+		B8CF0D9C1FBF5F8C002FE457 /* SaleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListTableViewCell.swift; sourceTree = "<group>"; };
+		B8CF0D9F1FBFA502002FE457 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CF0DA01FBFA51E002FE457 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,7 @@
 			children = (
 				B8CF0D7E1FBF4E12002FE457 /* GarageSale */,
 				B8CF0D7D1FBF4E12002FE457 /* Products */,
+				B8CF0D9E1FBFA502002FE457 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +64,57 @@
 		B8CF0D7E1FBF4E12002FE457 /* GarageSale */ = {
 			isa = PBXGroup;
 			children = (
-				B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */,
-				B8CF0D811FBF4E12002FE457 /* ViewController.swift */,
+				B8CF0D961FBF548A002FE457 /* Creation Flow */,
+				B8CF0D951FBF5471002FE457 /* Map View */,
+				B8CF0D941FBF545E002FE457 /* List View */,
 				B8CF0D831FBF4E12002FE457 /* Main.storyboard */,
-				B8CF0D891FBF4E12002FE457 /* Assets.xcassets */,
-				B8CF0D8B1FBF4E12002FE457 /* LaunchScreen.storyboard */,
-				B8CF0D8E1FBF4E12002FE457 /* Info.plist */,
+				B8CF0D971FBF54AD002FE457 /* Supporting Files */,
 				B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */,
 			);
 			path = GarageSale;
+			sourceTree = "<group>";
+		};
+		B8CF0D941FBF545E002FE457 /* List View */ = {
+			isa = PBXGroup;
+			children = (
+				B8CF0D981FBF5607002FE457 /* SaleListViewController.swift */,
+				B8CF0D9C1FBF5F8C002FE457 /* SaleListTableViewCell.swift */,
+			);
+			path = "List View";
+			sourceTree = "<group>";
+		};
+		B8CF0D951FBF5471002FE457 /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Map View";
+			sourceTree = "<group>";
+		};
+		B8CF0D961FBF548A002FE457 /* Creation Flow */ = {
+			isa = PBXGroup;
+			children = (
+				B8CF0D9A1FBF57CD002FE457 /* NewSaleViewController.swift */,
+			);
+			path = "Creation Flow";
+			sourceTree = "<group>";
+		};
+		B8CF0D971FBF54AD002FE457 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */,
+				B8CF0D891FBF4E12002FE457 /* Assets.xcassets */,
+				B8CF0D8B1FBF4E12002FE457 /* LaunchScreen.storyboard */,
+				B8CF0D8E1FBF4E12002FE457 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8CF0D9E1FBFA502002FE457 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8CF0D9F1FBFA502002FE457 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CF0D821FBF4E12002FE457 /* ViewController.swift in Sources */,
+				B8CF0D9B1FBF57CD002FE457 /* NewSaleViewController.swift in Sources */,
+				B8CF0D9D1FBF5F8C002FE457 /* SaleListTableViewCell.swift in Sources */,
 				B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */,
+				B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */,
 				B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CLE238DY6W;
-				INFOPLIST_FILE = GarageSale/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GarageSale/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.tabdel.GarageSale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -295,7 +347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CLE238DY6W;
-				INFOPLIST_FILE = GarageSale/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GarageSale/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.tabdel.GarageSale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
