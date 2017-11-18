@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To find garage sales near you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To find garage sales near you</string>
 </dict>
 </plist>

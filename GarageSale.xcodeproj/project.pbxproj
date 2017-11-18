@@ -16,6 +16,8 @@
 		B8CF0D9B1FBF57CD002FE457 /* NewSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D9A1FBF57CD002FE457 /* NewSaleViewController.swift */; };
 		B8CF0D9D1FBF5F8C002FE457 /* SaleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D9C1FBF5F8C002FE457 /* SaleListTableViewCell.swift */; };
 		B8CF0DA01FBFA51E002FE457 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0D9F1FBFA502002FE457 /* MapKit.framework */; };
+		B8CF0DA21FBFAC1E002FE457 /* SaleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */; };
+		B8CF0DA41FBFACDC002FE457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0DA31FBFACD3002FE457 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B8CF0D9A1FBF57CD002FE457 /* NewSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSaleViewController.swift; sourceTree = "<group>"; };
 		B8CF0D9C1FBF5F8C002FE457 /* SaleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListTableViewCell.swift; sourceTree = "<group>"; };
 		B8CF0D9F1FBFA502002FE457 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleMapViewController.swift; sourceTree = "<group>"; };
+		B8CF0DA31FBFACD3002FE457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CF0DA41FBFACDC002FE457 /* CoreLocation.framework in Frameworks */,
 				B8CF0DA01FBFA51E002FE457 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +91,7 @@
 		B8CF0D951FBF5471002FE457 /* Map View */ = {
 			isa = PBXGroup;
 			children = (
+				B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */,
 			);
 			path = "Map View";
 			sourceTree = "<group>";
@@ -112,6 +118,7 @@
 		B8CF0D9E1FBFA502002FE457 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8CF0DA31FBFACD3002FE457 /* CoreLocation.framework */,
 				B8CF0D9F1FBFA502002FE457 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -191,6 +198,7 @@
 			files = (
 				B8CF0D9B1FBF57CD002FE457 /* NewSaleViewController.swift in Sources */,
 				B8CF0D9D1FBF5F8C002FE457 /* SaleListTableViewCell.swift in Sources */,
+				B8CF0DA21FBFAC1E002FE457 /* SaleMapViewController.swift in Sources */,
 				B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */,
 				B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */,
 				B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */,

@@ -7,29 +7,33 @@
 //
 
 import UIKit
+import MapKit
 
-class SaleMapViewController: UIViewController {
+class SaleMapViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var map: MKMapView!
+    
+    let manager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
+        
+        setMapLocationToUser()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setMapLocationToUser() {
+        if let location = manager.location {
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let locationCoordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            map.setRegion(MKCoordinateRegion(center: locationCoordinate, span: span), animated: true)
+            map.showsUserLocation = true
+        }
     }
-    */
-
+    
 }
