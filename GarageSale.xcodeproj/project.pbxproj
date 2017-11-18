@@ -18,6 +18,7 @@
 		B8CF0DA01FBFA51E002FE457 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0D9F1FBFA502002FE457 /* MapKit.framework */; };
 		B8CF0DA21FBFAC1E002FE457 /* SaleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */; };
 		B8CF0DA41FBFACDC002FE457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0DA31FBFACD3002FE457 /* CoreLocation.framework */; };
+		B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B8CF0D9F1FBFA502002FE457 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleMapViewController.swift; sourceTree = "<group>"; };
 		B8CF0DA31FBFACD3002FE457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */,
+				B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */,
 			);
 			path = "Map View";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */,
 				B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */,
 				B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */,
+				B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

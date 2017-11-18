@@ -14,6 +14,7 @@ class SaleMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var map: MKMapView!
     
     let manager = CLLocationManager()
+    var resultSearchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,27 @@ class SaleMapViewController: UIViewController, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestAlwaysAuthorization()
         manager.startUpdatingLocation()
-        
         setMapLocationToUser()
+        
+        if let saleSearchTable = storyboard?.instantiateViewController(withIdentifier: "MapSearchTable") as? MapSearchTableViewController {
+            resultSearchController = UISearchController(searchResultsController: saleSearchTable)
+            resultSearchController.searchResultsUpdater = saleSearchTable
+            
+            let searchBar = resultSearchController!.searchBar
+            searchBar.sizeToFit()
+            searchBar.placeholder = "Search for garage sales near:"
+            
+            navigationItem.titleView = resultSearchController?.searchBar
+            resultSearchController.hidesNavigationBarDuringPresentation = false
+            resultSearchController.dimsBackgroundDuringPresentation = true
+//            definesPresentationContext = true
+            
+        }
+        
+       
     }
+    
+    // MARK: - Map and location
     
     func setMapLocationToUser() {
         if let location = manager.location {
@@ -35,5 +54,4 @@ class SaleMapViewController: UIViewController, CLLocationManagerDelegate {
             map.showsUserLocation = true
         }
     }
-    
 }
