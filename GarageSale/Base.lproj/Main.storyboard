@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="1876" y="565.36731634182911"/>
         </scene>
-        <!--View Controller-->
+        <!--Location Selection View Controller-->
         <scene sceneID="bcM-Sg-eoG">
             <objects>
-                <viewController id="K0e-lh-UEb" sceneMemberID="viewController">
+                <viewController id="K0e-lh-UEb" customClass="LocationSelectionViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="peY-dc-6ss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,11 @@
                         <viewLayoutGuide key="safeArea" id="Ku4-g9-fks"/>
                     </view>
                     <navigationItem key="navigationItem" id="3EJ-06-un2">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="T6V-hq-RZ7"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="T6V-hq-RZ7">
+                            <connections>
+                                <action selector="cancel:" destination="K0e-lh-UEb" id="Tim-n3-7yz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Jfh-4N-tRx">
                             <connections>
                                 <segue destination="jdX-0d-SKK" kind="show" id="nEb-fw-MQj"/>
@@ -137,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="3977" y="565"/>
         </scene>
-        <!--New Garage Sale-->
+        <!--Garage Sale Date-->
         <scene sceneID="JtQ-i6-zyB">
             <objects>
-                <viewController id="jdX-0d-SKK" customClass="NewSaleViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jdX-0d-SKK" customClass="DateSelectionViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2fx-Gm-A8i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,12 +214,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Ib-9B-2GJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Garage Sale" id="aX0-qF-6Um">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ima-ld-Cn0">
-                            <connections>
-                                <action selector="cancel:" destination="jdX-0d-SKK" id="iuL-4F-LMr"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Garage Sale Date" id="aX0-qF-6Um">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="KQ9-eJ-kUq"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="2ci-n4-ClX">
                             <connections>
                                 <action selector="done:" destination="jdX-0d-SKK" id="Yru-Vn-cvo"/>

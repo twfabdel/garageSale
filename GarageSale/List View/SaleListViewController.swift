@@ -68,8 +68,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func newGarageSale(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let navVC = storyboard.instantiateViewController(withIdentifier: "NewGarageSaleFlow") as? UINavigationController {
-            if let creationVC = navVC.viewControllers.first as? NewSaleViewController {
-                creationVC.creationCompletionHandler = { [weak self] in
+            if let locationVC = navVC.viewControllers.first as? LocationSelectionViewController {
+                locationVC.creationCompletionHandler = { [weak self] in
                     self?.loadData()
                 }
                 self.present(navVC, animated: true, completion: nil)

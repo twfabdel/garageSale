@@ -31,10 +31,6 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Navigation Actions
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     var creationCompletionHandler:(() -> Void)?
     
     @IBAction func done(_ sender: UIBarButtonItem) {
