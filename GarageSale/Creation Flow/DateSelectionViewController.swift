@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NewSaleViewController: UIViewController, UITextFieldDelegate {
+class DateSelectionViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var address: UITextField! {
         didSet {
