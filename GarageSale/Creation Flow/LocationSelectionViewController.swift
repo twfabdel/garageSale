@@ -14,22 +14,32 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
 
     var creationCompletionHandler: (()->Void)?
     let geocoder = CLGeocoder()
+    var addressFound = false
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     @IBOutlet weak var newLocationMap: MKMapView! {
         didSet {
             newLocationMap.delegate = self
         }
     }
+    @IBOutlet weak var addressLabel: UILabel!
+    var addressIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         map = newLocationMap
         createMapPin()
+        
+        addressIndicator.activityIndicatorViewStyle = .gray
+        addressIndicator.center = addressLabel.center
+        addressIndicator.hidesWhenStopped = true
+        self.view.addSubview(addressIndicator)
+        
         super.viewDidLoad()
     }
+    
+    // MARK: - Map delegate and pin
     
     private func createMapPin() {
         let pinHeight = self.view.frame.height * MapConstants.pinSizeRatio
@@ -46,15 +56,84 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let centerLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         
+        addressIndicator.startAnimating()
+        addressLabel.isHidden = true
+        addressFound = false
+        weak var weakSelf = self
         geocoder.reverseGeocodeLocation(centerLocation, completionHandler: { placemarks, error in
             if let err = error {
                 print("Error: \(err.localizedDescription)")
+                weakSelf?.addressLabel.text = "Error finding address at pin"
             } else if let placemark = placemarks?.first {
-                print(placemark)
+                weakSelf?.addressLabel.text = placemark.addressString
+                weakSelf?.addressFound = true
             }
+            weakSelf?.addressLabel.isHidden = false
+            weakSelf?.addressIndicator.stopAnimating()
         })
     }
     
+    
+     // MARK: - Navigation
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dateSelectionVC = segue.destination as? DateSelectionViewController, let mapView = map {
+            dateSelectionVC.address = addressLabel.text
+            dateSelectionVC.latitude = mapView.centerCoordinate.latitude
+            dateSelectionVC.longitude = mapView.centerCoordinate.longitude
+            dateSelectionVC.creationCompletionHandler = creationCompletionHandler
+        }
+     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "LocationToDateSelection" {
+            return addressFound
+        }
+        return false
+    }
+ 
+}
+
+extension CLPlacemark {
+    var addressString: String {
+        var address = append(subThoroughfare, to: "")
+        address = append(thoroughfare, to: address, with: " ")
+        address = append(locality, to: address, with: ", ")
+        address = append(administrativeArea, to: address, with: ", ")
+        return address
+    }
+    
+    private func append(_ str: String?, to address: String, with delimiter: String = "") -> String {
+        if str == nil {
+            return address
+        }
+        if address.isEmpty {
+            return str!
+        }
+        return address + delimiter + str!
+    }
+    
+    private func addComma(to string: String) -> String {
+        if string.count == 0 {
+            return string
+        }
+        if string.suffix(2) == ", " {
+            return string
+        }
+        return string + ", "
+    }
+    
+    private func addSpace(to string: String) -> String {
+        if string.count == 0 {
+            return string
+        }
+        if string.suffix(1) == " " {
+            return string
+        }
+        return string + " "
+    }
+}
+
 //
 //    let manager = CLLocationManager()
 //    var resultSearchController: UISearchController!
@@ -127,14 +206,6 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
     
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
-}
+//}

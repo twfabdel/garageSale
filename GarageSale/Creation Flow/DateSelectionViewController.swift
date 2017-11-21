@@ -11,11 +11,10 @@ import CoreData
 
 class DateSelectionViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var address: UITextField! {
-        didSet {
-            address.delegate = self
-        }
-    }
+    var address: String?
+    var latitude: Double?
+    var longitude: Double?
+    
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
@@ -35,7 +34,14 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         let sale = SaleModel(context: managedObjectContext)
-        sale.location = address.text!
+        
+        if address == nil || latitude == nil || longitude == nil {
+            return
+        }
+        
+        sale.address = address!
+        sale.latitude = latitude!
+        sale.longitude = longitude!
         sale.dateStart = startDatePicker.date
         sale.dateEnd = endDatePicker.date
         sale.datePosted = Date()
