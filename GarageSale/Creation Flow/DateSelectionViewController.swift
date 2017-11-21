@@ -30,7 +30,7 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Navigation Actions
     
-    var creationCompletionHandler:(() -> Void)?
+    //var creationCompletionHandler:(() -> Void)?
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         let sale = SaleModel(context: managedObjectContext)
@@ -50,10 +50,20 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
         do {
             try self.managedObjectContext.save()
             print("successfully saved data")
-            creationCompletionHandler?()
-            self.dismiss(animated: true, completion: nil)
+            resetView()
+            //creationCompletionHandler?()
+            //self.dismiss(animated: true, completion: nil)
+            
         } catch {
             print("Error saving data: \(error.localizedDescription)")
+        }
+    }
+    
+    private func resetView() {
+        self.tabBarController?.switchToTab(0, withAnimation: true)
+        self.navigationController?.popToRootViewController(animated: false)
+        if let mapVC = self.navigationController?.viewControllers.first as? LocationSelectionViewController {
+            mapVC.setMapLocationToUser()
         }
     }
     
@@ -69,3 +79,31 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     }
 
 }
+
+
+extension UITabBarController {
+    func switchToTab(_ index: Int, withAnimation animated: Bool) {
+        if !animated {
+            self.selectedIndex = index
+            return
+        }
+        if let fromView = self.selectedViewController?.view, let toView = self.viewControllers?[index].view {
+            UIView.transition(
+                from: fromView,
+                to: toView,
+                duration: 0.60,
+                options: .transitionCurlDown ,
+                completion: { finished in
+                    if finished {
+                        self.selectedIndex = index
+                    }
+                }
+            )
+
+        }
+    }
+}
+
+
+
+

@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Srh-Yg-zO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="1267.9160419790105"/>
+            <point key="canvasLocation" x="1714" y="1657"/>
         </scene>
         <!--Sale List View Controller-->
         <scene sceneID="Ofg-VP-E5y">
@@ -99,20 +99,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Avq-t7-ZXS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YKG-jo-KOL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J2d-Kl-twR">
-                            <connections>
-                                <action selector="newGarageSale:" destination="DRl-i0-GY5" id="TCJ-ie-qr6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="YKG-jo-KOL"/>
                     <connections>
                         <outlet property="saleTableView" destination="E40-bq-s0n" id="XIT-Ko-4Jh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qY8-Ii-f1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="565.36731634182911"/>
+            <point key="canvasLocation" x="1714" y="125"/>
         </scene>
         <!--Location Selection View Controller-->
         <scene sceneID="bcM-Sg-eoG">
@@ -123,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2om-BW-OPv">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7q-K1-Qmg">
                                 <rect key="frame" x="5" y="69" width="365" height="40"/>
@@ -148,11 +142,6 @@
                         <viewLayoutGuide key="safeArea" id="Ku4-g9-fks"/>
                     </view>
                     <navigationItem key="navigationItem" id="3EJ-06-un2">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="T6V-hq-RZ7">
-                            <connections>
-                                <action selector="cancel:" destination="K0e-lh-UEb" id="Tim-n3-7yz"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Jfh-4N-tRx">
                             <connections>
                                 <segue destination="jdX-0d-SKK" kind="show" identifier="LocationToDateSelection" id="nEb-fw-MQj"/>
@@ -166,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vS6-k0-Ppn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3976.8000000000002" y="564.46776611694156"/>
+            <point key="canvasLocation" x="1714" y="898"/>
         </scene>
         <!--Garage Sale Date-->
         <scene sceneID="JtQ-i6-zyB">
@@ -177,28 +166,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="v73-4R-lyN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBJ-yW-uYZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="e6t-Zw-bZJ">
-                                        <rect key="frame" x="0.0" y="26" width="375" height="275.5"/>
+                                        <rect key="frame" x="0.0" y="24" width="375" height="253"/>
                                         <date key="date" timeIntervalSinceReferenceDate="532633867.84349602">
                                             <!--2017-11-17 17:51:07 +0000-->
                                         </date>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc7-5J-3co">
-                                        <rect key="frame" x="0.0" y="301.5" width="375" height="26"/>
+                                        <rect key="frame" x="0.0" y="277" width="375" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fPA-pi-5r9">
-                                        <rect key="frame" x="0.0" y="327.5" width="375" height="275.5"/>
+                                        <rect key="frame" x="0.0" y="301" width="375" height="253"/>
                                         <date key="date" timeIntervalSinceReferenceDate="532633914.65756798">
                                             <!--2017-11-17 17:51:54 +0000-->
                                         </date>
@@ -245,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isi-K8-tEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4767" y="566"/>
+            <point key="canvasLocation" x="2503" y="899"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mCU-rC-d3V">
@@ -258,6 +247,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="c7Q-jR-7hG" kind="relationship" relationship="viewControllers" id="2F2-Xp-Ylz"/>
+                        <segue destination="SdG-28-bBo" kind="relationship" relationship="viewControllers" id="9Te-vS-0D6"/>
                         <segue destination="2YN-bj-RoF" kind="relationship" relationship="viewControllers" id="2go-7F-5v6"/>
                     </connections>
                 </tabBarController>
@@ -282,7 +272,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjJ-RG-0n2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="923.20000000000005" y="566.71664167916049"/>
+            <point key="canvasLocation" x="921" y="126"/>
         </scene>
         <!--Map-->
         <scene sceneID="Wgn-fX-2ra">
@@ -301,12 +291,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmF-vn-Xpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="1268"/>
+            <point key="canvasLocation" x="921" y="1657"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--New Sale-->
         <scene sceneID="ICV-dU-CeL">
             <objects>
                 <navigationController storyboardIdentifier="NewGarageSaleFlow" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SdG-28-bBo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="New Sale" id="jgp-c9-mD2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G9V-6I-bAC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -319,7 +310,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gym-3c-b6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3186" y="567"/>
+            <point key="canvasLocation" x="921" y="899"/>
         </scene>
         <!--Map Search Table View Controller-->
         <scene sceneID="8PF-rY-dzK">
@@ -356,7 +347,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEi-tJ-R4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185" y="1268"/>
+            <point key="canvasLocation" x="3745" y="898"/>
         </scene>
     </scenes>
 </document>

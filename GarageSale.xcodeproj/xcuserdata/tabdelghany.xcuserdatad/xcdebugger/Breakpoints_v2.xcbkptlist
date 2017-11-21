@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GarageSale/Creation Flow/LocationSelectionViewController.swift"
-            timestampString = "532943714.290807"
+            timestampString = "532989187.316105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "addComma(to:)"
             landmarkType = "7">
          </BreakpointContent>

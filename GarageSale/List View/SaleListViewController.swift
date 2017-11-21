@@ -24,7 +24,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.saleTableView.reloadData()
+        //self.saleTableView.reloadData()
+        loadData()
     }
     
     private func loadData() {
@@ -65,16 +66,16 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    @IBAction func newGarageSale(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let navVC = storyboard.instantiateViewController(withIdentifier: "NewGarageSaleFlow") as? UINavigationController {
-            if let locationVC = navVC.viewControllers.first as? LocationSelectionViewController {
-                locationVC.creationCompletionHandler = { [weak self] in
-                    self?.loadData()
-                }
-                self.present(navVC, animated: true, completion: nil)
-            }
-        }
-    }
+//    @IBAction func newGarageSale(_ sender: UIBarButtonItem) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let navVC = storyboard.instantiateViewController(withIdentifier: "NewGarageSaleFlow") as? UINavigationController {
+//            if let locationVC = navVC.viewControllers.first as? LocationSelectionViewController {
+//                locationVC.creationCompletionHandler = { [weak self] in
+//                    self?.loadData()
+//                }
+//                self.present(navVC, animated: true, completion: nil)
+//            }
+//        }
+//    }
 
 }

@@ -10,15 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegate { //UIViewController, CLLocationManagerDelegate {
+class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegate {
 
-    var creationCompletionHandler: (()->Void)?
+//    var creationCompletionHandler: (()->Void)?
     let geocoder = CLGeocoder()
-    var addressFound = false
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func cancel(_ sender: UIBarButtonItem) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
+    
     @IBOutlet weak var newLocationMap: MKMapView! {
         didSet {
             newLocationMap.delegate = self
@@ -58,15 +58,20 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
         
         addressIndicator.startAnimating()
         addressLabel.isHidden = true
-        addressFound = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        
         weak var weakSelf = self
         geocoder.reverseGeocodeLocation(centerLocation, completionHandler: { placemarks, error in
             if let err = error {
                 print("Error: \(err.localizedDescription)")
                 weakSelf?.addressLabel.text = "Error finding address at pin"
             } else if let placemark = placemarks?.first {
-                weakSelf?.addressLabel.text = placemark.addressString
-                weakSelf?.addressFound = true
+                if placemark.inlandWater != nil || placemark.ocean != nil {
+                    weakSelf?.addressLabel.text = "Please use a valid location on land"
+                } else {
+                    weakSelf?.addressLabel.text = placemark.addressString
+                    weakSelf?.navigationItem.rightBarButtonItem?.isEnabled = true
+                }
             }
             weakSelf?.addressLabel.isHidden = false
             weakSelf?.addressIndicator.stopAnimating()
@@ -81,16 +86,9 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
             dateSelectionVC.address = addressLabel.text
             dateSelectionVC.latitude = mapView.centerCoordinate.latitude
             dateSelectionVC.longitude = mapView.centerCoordinate.longitude
-            dateSelectionVC.creationCompletionHandler = creationCompletionHandler
+            //dateSelectionVC.creationCompletionHandler = creationCompletionHandler
         }
      }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "LocationToDateSelection" {
-            return addressFound
-        }
-        return false
-    }
  
 }
 
