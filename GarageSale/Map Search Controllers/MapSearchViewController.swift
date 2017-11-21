@@ -82,8 +82,7 @@ class MapSearchViewController: UIViewController, CLLocationManagerDelegate, UISe
     }
     
     func setMapLocationTo(_ placemark: MKPlacemark?, user isUser: Bool) {
-        resultSearchController.dismiss(animated: true, completion: nil)
-        //resultSearchController.isActive = false
+        resultSearchController.isActive = false
         if isUser {
             setMapLocationToUser()
         } else {
