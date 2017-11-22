@@ -21,6 +21,7 @@
 		B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */; };
 		B8CF0DAB1FC0F6F0002FE457 /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DAA1FC0F6F0002FE457 /* LocationSelectionViewController.swift */; };
 		B8CF0DAF1FC292EF002FE457 /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DAE1FC292EF002FE457 /* MapSearchViewController.swift */; };
+		B8CF0DB21FC4D444002FE457 /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DB11FC4D444002FE457 /* ImageSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTableViewController.swift; sourceTree = "<group>"; };
 		B8CF0DAA1FC0F6F0002FE457 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewController.swift; sourceTree = "<group>"; };
 		B8CF0DAE1FC292EF002FE457 /* MapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
+		B8CF0DB11FC4D444002FE457 /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				B8CF0D9A1FBF57CD002FE457 /* DateSelectionViewController.swift */,
 				B8CF0DAA1FC0F6F0002FE457 /* LocationSelectionViewController.swift */,
+				B8CF0DB11FC4D444002FE457 /* ImageSelectionViewController.swift */,
 			);
 			path = "Creation Flow";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8CF0D9B1FBF57CD002FE457 /* DateSelectionViewController.swift in Sources */,
+				B8CF0DB21FC4D444002FE457 /* ImageSelectionViewController.swift in Sources */,
 				B8CF0D9D1FBF5F8C002FE457 /* SaleListTableViewCell.swift in Sources */,
 				B8CF0DA21FBFAC1E002FE457 /* SaleMapViewController.swift in Sources */,
 				B8CF0DAF1FC292EF002FE457 /* MapSearchViewController.swift in Sources */,

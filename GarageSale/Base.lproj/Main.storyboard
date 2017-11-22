@@ -221,9 +221,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Garage Sale Date" id="aX0-qF-6Um">
                         <barButtonItem key="backBarButtonItem" title="Back" id="KQ9-eJ-kUq"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2ci-n4-ClX">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="2ci-n4-ClX">
                             <connections>
                                 <action selector="done:" destination="jdX-0d-SKK" id="Yru-Vn-cvo"/>
+                                <segue destination="2Fc-mN-i3E" kind="show" id="jaB-IN-yzj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -235,6 +236,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isi-K8-tEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2503" y="899"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="1Ct-4S-0yj">
+            <objects>
+                <viewController id="2Fc-mN-i3E" customClass="ImageSelectionViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dj6-Mc-6r9" customClass="ImageSelection">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="zBs-J3-bJ4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="ix9-9E-ie3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="waE-ej-Zby">
+                            <connections>
+                                <action selector="done:" destination="2Fc-mN-i3E" id="fi4-bM-WgC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTT-l2-dW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3257" y="899"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mCU-rC-d3V">
@@ -347,7 +370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEi-tJ-R4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3745" y="898"/>
+            <point key="canvasLocation" x="2802" y="1657"/>
         </scene>
     </scenes>
 </document>

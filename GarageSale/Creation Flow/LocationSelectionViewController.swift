@@ -9,15 +9,13 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegate {
 
-//    var creationCompletionHandler: (()->Void)?
+    var newSale: SaleModel?
+    var managedObjectContext: NSManagedObjectContext!
     let geocoder = CLGeocoder()
-    
-//    @IBAction func cancel(_ sender: UIBarButtonItem) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
     
     @IBOutlet weak var newLocationMap: MKMapView! {
         didSet {
@@ -28,6 +26,9 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
     var addressIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
+        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        newSale = SaleModel(context: managedObjectContext)
+        
         map = newLocationMap
         createMapPin()
         
@@ -83,9 +84,16 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dateSelectionVC = segue.destination as? DateSelectionViewController, let mapView = map {
-            dateSelectionVC.address = addressLabel.text
-            dateSelectionVC.latitude = mapView.centerCoordinate.latitude
-            dateSelectionVC.longitude = mapView.centerCoordinate.longitude
+            newSale?.address = addressLabel.text
+            newSale?.latitude = mapView.centerCoordinate.latitude
+            newSale?.longitude = mapView.centerCoordinate.longitude
+            newSale?.id = UUID()
+            
+            dateSelectionVC.newSale = newSale
+            
+//            dateSelectionVC.address = addressLabel.text
+//            dateSelectionVC.latitude = mapView.centerCoordinate.latitude
+//            dateSelectionVC.longitude = mapView.centerCoordinate.longitude
             //dateSelectionVC.creationCompletionHandler = creationCompletionHandler
         }
      }
