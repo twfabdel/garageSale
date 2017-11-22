@@ -9,31 +9,33 @@
 import UIKit
 import CoreData
 
-class ImageSelectionViewController: UIViewController {
+class ImageSelectionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var newSale: SaleModel?
+    let imagePicker = UIImagePickerController()
+    var items = [saleItem]()
 
+    @IBOutlet weak var itemCollectionView: UICollectionView! {
+        didSet {
+            itemCollectionView.delegate = self
+            itemCollectionView.dataSource = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: - Navigation
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         newSale?.datePosted = Date()
-        
         do {
             try self.newSale!.managedObjectContext!.save()
             print("successfully saved data")
             resetView()
-            //creationCompletionHandler?()
-            //self.dismiss(animated: true, completion: nil)
-            
         } catch {
             print("Error saving data: \(error.localizedDescription)")
         }
@@ -46,8 +48,58 @@ class ImageSelectionViewController: UIViewController {
             mapVC.setMapLocationToUser()
         }
     }
+    
+    // MARK: - Image Picker Delegate
+    
+    @IBAction func addImage(_ sender: UIButton) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            items.append(saleItem(image: image))
+            self.itemCollectionView.reloadData()
+        } else {
+            print("Error selecting image")
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - CollectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewItemCell", for: indexPath)
+        if let itemCell = cell as? AddItemCollectionViewCell {
+            let item = items[indexPath.row]
+            itemCell.itemImageView.contentMode = .scaleAspectFill
+            itemCell.itemImageView.image = item.image
+            if let price = item.price {
+                itemCell.priceTextField.text = "\(price)"
+            }
+        }
+        return cell
+    }
 }
 
+struct saleItem {
+    var price: Double?
+    var image: UIImage
+    
+    init(image: UIImage, price: Double? = nil) {
+        self.image = image
+        self.price = price
+    }
+}
 
 extension UITabBarController {
     func switchToTab(_ index: Int, withAnimation animated: Bool) {
@@ -65,9 +117,8 @@ extension UITabBarController {
                     if finished {
                         self.selectedIndex = index
                     }
-            }
+                }
             )
-            
         }
     }
 }

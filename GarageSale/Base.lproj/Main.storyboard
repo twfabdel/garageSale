@@ -108,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="1714" y="125"/>
         </scene>
-        <!--Location Selection View Controller-->
+        <!--Select Location-->
         <scene sceneID="bcM-Sg-eoG">
             <objects>
                 <viewController id="K0e-lh-UEb" customClass="LocationSelectionViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ku4-g9-fks"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3EJ-06-un2">
+                    <navigationItem key="navigationItem" title="Select Location" id="3EJ-06-un2">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Jfh-4N-tRx">
                             <connections>
                                 <segue destination="jdX-0d-SKK" kind="show" identifier="LocationToDateSelection" id="nEb-fw-MQj"/>
@@ -157,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="1714" y="898"/>
         </scene>
-        <!--Garage Sale Date-->
+        <!--Time and Date-->
         <scene sceneID="JtQ-i6-zyB">
             <objects>
                 <viewController id="jdX-0d-SKK" customClass="DateSelectionViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -219,7 +219,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Ib-9B-2GJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Garage Sale Date" id="aX0-qF-6Um">
+                    <navigationItem key="navigationItem" title="Time and Date" id="aX0-qF-6Um">
                         <barButtonItem key="backBarButtonItem" title="Back" id="KQ9-eJ-kUq"/>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="2ci-n4-ClX">
                             <connections>
@@ -237,27 +237,104 @@
             </objects>
             <point key="canvasLocation" x="2503" y="899"/>
         </scene>
-        <!--Title-->
+        <!--Items-->
         <scene sceneID="1Ct-4S-0yj">
             <objects>
                 <viewController id="2Fc-mN-i3E" customClass="ImageSelectionViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dj6-Mc-6r9" customClass="ImageSelection">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kvo-QX-9yf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-sG-bd8">
+                                        <rect key="frame" x="105.5" y="0.0" width="164" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="JK0-tn-8Uo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Add Item and Price"/>
+                                        <connections>
+                                            <action selector="addImage:" destination="2Fc-mN-i3E" eventType="touchUpInside" id="LRS-ZO-fI0"/>
+                                        </connections>
+                                    </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iMy-z3-8zv">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="514"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PtG-rS-mFD">
+                                            <size key="itemSize" width="93" height="117"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewItemCell" id="rdo-WF-9QQ" customClass="AddItemCollectionViewCell" customModule="GarageSale" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="117"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="93" height="117"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rx-az-1XR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="117"/>
+                                                        </imageView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VjW-yo-Q6e">
+                                                            <rect key="frame" x="5" y="82" width="83" height="30"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.70146618150684936" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.0014362927317948285" green="0.50582963197969544" blue="0.0022285389484572801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="VjW-yo-Q6e" secondAttribute="trailing" constant="5" id="6dU-EE-ETb"/>
+                                                    <constraint firstItem="VjW-yo-Q6e" firstAttribute="leading" secondItem="rdo-WF-9QQ" secondAttribute="leading" constant="5" id="PdQ-FL-zOi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5rx-az-1XR" secondAttribute="trailing" id="Ugi-KB-XPB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VjW-yo-Q6e" secondAttribute="bottom" constant="5" id="Z1X-ZW-XUT"/>
+                                                    <constraint firstItem="5rx-az-1XR" firstAttribute="leading" secondItem="rdo-WF-9QQ" secondAttribute="leading" id="Z3j-6B-cwY"/>
+                                                    <constraint firstItem="5rx-az-1XR" firstAttribute="top" secondItem="rdo-WF-9QQ" secondAttribute="top" id="cpp-HF-w9x"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5rx-az-1XR" secondAttribute="bottom" id="jfG-Ue-jef"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="itemImageView" destination="5rx-az-1XR" id="35U-UE-Gmj"/>
+                                                    <outlet property="priceTextField" destination="VjW-yo-Q6e" id="iOH-C9-4SD"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iMy-z3-8zv" secondAttribute="trailing" id="T7G-8e-mrk"/>
+                                    <constraint firstAttribute="bottom" secondItem="iMy-z3-8zv" secondAttribute="bottom" id="hXH-6i-l0V"/>
+                                    <constraint firstItem="iMy-z3-8zv" firstAttribute="leading" secondItem="Kvo-QX-9yf" secondAttribute="leading" id="tP1-pG-Xv8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kvo-QX-9yf" firstAttribute="trailing" secondItem="zBs-J3-bJ4" secondAttribute="trailing" id="FdL-tW-NU3"/>
+                            <constraint firstItem="Kvo-QX-9yf" firstAttribute="leading" secondItem="zBs-J3-bJ4" secondAttribute="leading" id="a1M-gR-zzQ"/>
+                            <constraint firstItem="zBs-J3-bJ4" firstAttribute="bottom" secondItem="Kvo-QX-9yf" secondAttribute="bottom" id="lmk-kn-aU8"/>
+                            <constraint firstItem="Kvo-QX-9yf" firstAttribute="top" secondItem="zBs-J3-bJ4" secondAttribute="top" id="oZw-a4-5VA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zBs-J3-bJ4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="ix9-9E-ie3">
+                    <navigationItem key="navigationItem" title="Items" id="ix9-9E-ie3">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="waE-ej-Zby">
                             <connections>
                                 <action selector="done:" destination="2Fc-mN-i3E" id="fi4-bM-WgC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemCollectionView" destination="iMy-z3-8zv" id="I0k-5x-dov"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTT-l2-dW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3257" y="899"/>
+            <point key="canvasLocation" x="3256.8000000000002" y="897.30134932533736"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mCU-rC-d3V">
