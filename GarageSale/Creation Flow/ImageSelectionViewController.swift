@@ -32,6 +32,17 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         newSale?.datePosted = Date()
+        let managedObjectContext = newSale!.managedObjectContext!
+        let entityItem = NSEntityDescription.entity(forEntityName: "ItemModel", in: managedObjectContext)
+        items.forEach { saleItem in
+            let newItem = ItemModel(entity: entityItem!, insertInto: managedObjectContext)
+            let imgData = UIImageJPEGRepresentation(saleItem.image, 0.8)
+            newItem.image = imgData
+            if let price = saleItem.price {
+                newItem.price = price
+            }
+            newSale?.addToItems(newItem)
+        }
         do {
             try self.newSale!.managedObjectContext!.save()
             print("successfully saved data")
@@ -92,10 +103,10 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
 }
 
 struct saleItem {
-    var price: Double?
+    var price: Float?
     var image: UIImage
     
-    init(image: UIImage, price: Double? = nil) {
+    init(image: UIImage, price: Float? = nil) {
         self.image = image
         self.price = price
     }

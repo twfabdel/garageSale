@@ -4,6 +4,7 @@
         <attribute name="garageSale" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="sale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SaleModel" inverseName="items" inverseEntity="SaleModel" syncable="YES"/>
     </entity>
     <entity name="SaleModel" representedClassName="SaleModel" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,10 +14,10 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemModel" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemModel" inverseName="sale" inverseEntity="ItemModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="SaleModel" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="ItemModel" positionX="-54" positionY="45" width="128" height="90"/>
+        <element name="ItemModel" positionX="-54" positionY="45" width="128" height="105"/>
     </elements>
 </model>
