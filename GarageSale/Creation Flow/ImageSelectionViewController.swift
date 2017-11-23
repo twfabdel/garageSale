@@ -47,7 +47,13 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
                 noNil = false
             }
         }
-        return noNil
+        if noNil {
+            return true
+        }
+        let alert = UIAlertController(title: "Missing Price", message: "Please input a price for all items", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+        return false
     }
     
     // MARK: - Image Picker Delegate

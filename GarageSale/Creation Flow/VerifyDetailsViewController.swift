@@ -57,8 +57,6 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
     @IBAction func done(_ sender: UIBarButtonItem) {
         newSale?.datePosted = Date()
         let managedObjectContext = newSale!.managedObjectContext!
-//        let saleItems = newSale?.mutableSetValue(forKey: "items")
-        
         let entityItem = NSEntityDescription.entity(forEntityName: "ItemModel", in: managedObjectContext)
         items?.forEach { saleItem in
             let newItem = ItemModel(entity: entityItem!, insertInto: managedObjectContext)
@@ -68,7 +66,6 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
                 newItem.price = price
             }
             newSale?.addToItems(newItem)
-//            saleItems?.add(newItem)
         }
         do {
             try self.newSale!.managedObjectContext!.save()
