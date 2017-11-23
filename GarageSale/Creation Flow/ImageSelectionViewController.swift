@@ -30,41 +30,31 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
 
     // MARK: - Navigation
     
-    @IBAction func done(_ sender: UIBarButtonItem) {
-        newSale?.datePosted = Date()
-        let managedObjectContext = newSale!.managedObjectContext!
-        let entityItem = NSEntityDescription.entity(forEntityName: "ItemModel", in: managedObjectContext)
-        items.forEach { saleItem in
-            let newItem = ItemModel(entity: entityItem!, insertInto: managedObjectContext)
-            let imgData = UIImageJPEGRepresentation(saleItem.image, 0.8)
-            newItem.image = imgData
-            if let price = saleItem.price {
-                newItem.price = price
-            }
-            newSale?.addToItems(newItem)
-        }
-        do {
-            try self.newSale!.managedObjectContext!.save()
-            print("successfully saved data")
-            resetView()
-        } catch {
-            print("Error saving data: \(error.localizedDescription)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let verificationVC = segue.destination as? VerifyDetailsViewController {
+            verificationVC.items = items
+            verificationVC.newSale = newSale
         }
     }
     
-    private func resetView() {
-        self.tabBarController?.switchToTab(0, withAnimation: true)
-        self.navigationController?.popToRootViewController(animated: false)
-        if let mapVC = self.navigationController?.viewControllers.first as? LocationSelectionViewController {
-            mapVC.setMapLocationToUser()
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier != "ToCreationVerification" {
+            return false
         }
+        var noNil = true
+        items.forEach {
+            if $0.price == nil {
+                noNil = false
+            }
+        }
+        return noNil
     }
     
     // MARK: - Image Picker Delegate
     
     @IBAction func addImage(_ sender: UIButton) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        imagePicker.sourceType = .camera  //.photoLibrary
+        //imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -99,7 +89,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
             itemCell.priceEditedHandler = {
                 if let priceString = itemCell.priceTextField.text, priceString != "" {
                     if let priceFloat = Float(priceString) {
-                        itemCell.priceTextField.text = String(format: "$%.02f", priceFloat)
+                        itemCell.priceTextField.text = priceFloat.priceString
                         weakSelf?.items[indexPath.row].price = priceFloat
                     } else {
                         itemCell.priceTextField.text = ""
@@ -123,27 +113,5 @@ struct saleItem {
     init(image: UIImage, price: Float? = nil) {
         self.image = image
         self.price = price
-    }
-}
-
-extension UITabBarController {
-    func switchToTab(_ index: Int, withAnimation animated: Bool) {
-        if !animated {
-            self.selectedIndex = index
-            return
-        }
-        if let fromView = self.selectedViewController?.view, let toView = self.viewControllers?[index].view {
-            UIView.transition(
-                from: fromView,
-                to: toView,
-                duration: 0.60,
-                options: .transitionCurlDown ,
-                completion: { finished in
-                    if finished {
-                        self.selectedIndex = index
-                    }
-                }
-            )
-        }
     }
 }

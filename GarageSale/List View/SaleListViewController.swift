@@ -60,8 +60,19 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
             let garageSale = garageSales[indexPath.row]
             saleCell.locationLabel.text = garageSale.address
             saleCell.dateLabel.text = garageSale.dateStart?.description
+            saleCell.sale = garageSale
         }
     
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sourceCell = sender as? SaleListTableViewCell,
+            let destination = segue.destination as? SaleDetailsViewController
+        {
+            destination.sale = sourceCell.sale
+        }
     }
 }

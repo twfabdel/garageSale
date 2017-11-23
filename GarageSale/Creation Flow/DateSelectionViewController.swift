@@ -40,41 +40,6 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    @IBAction func done(_ sender: UIBarButtonItem) {
-//        let sale = SaleModel(context: managedObjectContext)
-//        
-//        if address == nil || latitude == nil || longitude == nil {
-//            return
-//        }
-//        
-//        sale.address = address!
-//        sale.latitude = latitude!
-//        sale.longitude = longitude!
-//        sale.dateStart = startDatePicker.date
-//        sale.dateEnd = endDatePicker.date
-//        sale.datePosted = Date()
-//        sale.id = UUID()
-//        
-//        do {
-//            try self.managedObjectContext.save()
-//            print("successfully saved data")
-//            resetView()
-//            //creationCompletionHandler?()
-//            //self.dismiss(animated: true, completion: nil)
-//            
-//        } catch {
-//            print("Error saving data: \(error.localizedDescription)")
-//        }
-//    }
-    
-//    private func resetView() {
-//        self.tabBarController?.switchToTab(0, withAnimation: true)
-//        self.navigationController?.popToRootViewController(animated: false)
-//        if let mapVC = self.navigationController?.viewControllers.first as? LocationSelectionViewController {
-//            mapVC.setMapLocationToUser()
-//        }
-//    }
-    
     // MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
