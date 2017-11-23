@@ -94,8 +94,22 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
             let item = items[indexPath.row]
             itemCell.itemImageView.contentMode = .scaleAspectFill
             itemCell.itemImageView.image = item.image
+            
+            weak var weakSelf = self
+            itemCell.priceEditedHandler = {
+                if let priceString = itemCell.priceTextField.text, priceString != "" {
+                    if let priceFloat = Float(priceString) {
+                        itemCell.priceTextField.text = String(format: "$%.02f", priceFloat)
+                        weakSelf?.items[indexPath.row].price = priceFloat
+                    } else {
+                        itemCell.priceTextField.text = ""
+                    }
+                }
+            }
             if let price = item.price {
-                itemCell.priceTextField.text = "\(price)"
+                itemCell.priceTextField.text = String(format: "$%.02f", price)
+            } else {
+                itemCell.priceTextField.text = ""
             }
         }
         return cell

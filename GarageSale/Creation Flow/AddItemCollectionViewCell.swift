@@ -8,12 +8,25 @@
 
 import UIKit
 
-class AddItemCollectionViewCell: UICollectionViewCell {
+class AddItemCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var priceTextField: UITextField! {
         didSet {
             priceTextField.addDoneCancelToolbar()
+            priceTextField.delegate = self
+        }
+    }
+    
+    var priceEditedHandler: (() -> Void)?
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        priceEditedHandler?()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text?.first == "$" {
+            textField.text?.remove(at: textField.text!.startIndex)
         }
     }
 }
