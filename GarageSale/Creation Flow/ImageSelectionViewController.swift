@@ -53,9 +53,24 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     // MARK: - Image Picker Delegate
     
     @IBAction func addImage(_ sender: UIButton) {
-        imagePicker.sourceType = .camera  //.photoLibrary
-        //imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-        present(imagePicker, animated: true, completion: nil)
+        weak var weakSelf = self
+        
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true, completion: nil)
+        }
+        
+        let alert = UIAlertController(title: "Select image from photo library or take image with camera?", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { action in
+            weakSelf?.imagePicker.sourceType = .photoLibrary
+            weakSelf?.present(weakSelf!.imagePicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
+            weakSelf?.imagePicker.sourceType = .camera
+            weakSelf?.present(weakSelf!.imagePicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
