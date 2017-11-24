@@ -9,10 +9,21 @@
 import UIKit
 
 class ItemImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
-    var sale: SaleModel?
     
     var saleItems: [Any]?
+    
+    override func viewDidLoad() {
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(dismissView(_:)))
+        downSwipe.direction = .down
+        self.view.addGestureRecognizer(downSwipe)
+    }
+    
+    @objc private func dismissView(_ sender: UISwipeGestureRecognizer) {
+        if sender.state != .ended {
+            return
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBOutlet weak var itemImagesCollectionView: UICollectionView! {
         didSet {
