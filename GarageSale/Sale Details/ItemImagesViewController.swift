@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ItemImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var saleItems: [Any]?
     
@@ -35,7 +35,6 @@ class ItemImagesViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: - CollectionView DataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return sale?.items?.count ?? 0
         return saleItems?.count ?? 0
     }
     
@@ -43,16 +42,19 @@ class ItemImagesViewController: UIViewController, UICollectionViewDelegate, UICo
         let cell = itemImagesCollectionView.dequeueReusableCell(withReuseIdentifier: "SaleDetailCell", for: indexPath)
         
         if let detailCell = cell as? SaleDetailsCollectionViewCell,
-            //let itemsSet = sale?.items,
-            //let item = itemsSet.allObjects[indexPath.row] as? ItemModel,
             let item = saleItems?[indexPath.row] as? ItemModel,
             let itemImageData = item.image
         {
             detailCell.itemPriceLabel.text = item.price.priceString
-            detailCell.itemImageView.image = UIImage(data: itemImageData)
+            //detailCell.itemImageView.image = UIImage(data: itemImageData)
+            detailCell.setImageView(with: itemImageData)
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return itemImagesCollectionView.frame.size
     }
 
 }

@@ -11,7 +11,7 @@ import UIKit
 
 public extension Float {
     var priceString: String {
-        return String(format: "%.02f", self)
+        return String(format: "$%.02f", self)
     }
 }
 
