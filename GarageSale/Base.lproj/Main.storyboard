@@ -86,7 +86,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="RTd-a1-JGw" id="ds4-Wr-NjP"/>
                                             <outlet property="locationLabel" destination="ppr-gO-qC7" id="tYL-e4-AQS"/>
-                                            <segue destination="ZsJ-FU-W1S" kind="show" id="xY4-mJ-YD9"/>
+                                            <segue destination="jXo-To-p8D" kind="show" id="NBb-lH-T9c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -110,16 +110,16 @@
             </objects>
             <point key="canvasLocation" x="1714" y="125"/>
         </scene>
-        <!--Sale Details View Controller-->
+        <!--Item Images View Controller-->
         <scene sceneID="my8-z9-SKO">
             <objects>
-                <viewController id="ZsJ-FU-W1S" customClass="SaleDetailsViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZsJ-FU-W1S" customClass="ItemImagesViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9N5-dq-su0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AqQ-VD-fxu">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D4A-nW-wAf">
                                     <size key="itemSize" width="108" height="152"/>
@@ -171,12 +171,12 @@
                         <viewLayoutGuide key="safeArea" id="1qk-Ok-jI8"/>
                     </view>
                     <connections>
-                        <outlet property="saleDetailsCollectionView" destination="AqQ-VD-fxu" id="prm-ag-ZkZ"/>
+                        <outlet property="itemImagesCollectionView" destination="AqQ-VD-fxu" id="fp4-LM-Q6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xin-YE-zKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501.5999999999999" y="124.58770614692655"/>
+            <point key="canvasLocation" x="3438" y="125"/>
         </scene>
         <!--Select Location-->
         <scene sceneID="bcM-Sg-eoG">
@@ -660,6 +660,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEi-tJ-R4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2802" y="1657"/>
+        </scene>
+        <!--Sale Details View Controller-->
+        <scene sceneID="3YE-99-cxo">
+            <objects>
+                <viewController id="jXo-To-p8D" customClass="SaleDetailsViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ceP-7h-0nn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Info, Stanford, CA, 94305 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyp-iu-Kav">
+                                <rect key="frame" x="54" y="72" width="267.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ktp-oG-hdY">
+                                <rect key="frame" x="0.0" y="100.5" width="375.5" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="Inn-Mp-PQS"/>
+                                </constraints>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Jo-9Z-1HJ">
+                                <rect key="frame" x="84" y="378.5" width="207.5" height="61.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday May 18, 2017 3pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rn-Hw-IVH">
+                                        <rect key="frame" x="0.0" y="0.0" width="207.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zei-Q2-WHZ">
+                                        <rect key="frame" x="0.0" y="20.5" width="207.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday May 18, 2017 3pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcO-TV-w4H">
+                                        <rect key="frame" x="0.0" y="41" width="207.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hcO-TV-w4H" secondAttribute="bottom" id="2HH-O2-Jyj"/>
+                                    <constraint firstItem="Zei-Q2-WHZ" firstAttribute="leading" secondItem="4Jo-9Z-1HJ" secondAttribute="leading" id="Df3-7s-lOu"/>
+                                    <constraint firstItem="2rn-Hw-IVH" firstAttribute="leading" secondItem="4Jo-9Z-1HJ" secondAttribute="leading" id="GxG-jt-iEe"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zei-Q2-WHZ" secondAttribute="trailing" id="KAJ-J7-U84"/>
+                                    <constraint firstItem="Zei-Q2-WHZ" firstAttribute="top" secondItem="2rn-Hw-IVH" secondAttribute="bottom" id="NaB-bt-NQo"/>
+                                    <constraint firstAttribute="trailing" secondItem="2rn-Hw-IVH" secondAttribute="trailing" id="Wnp-qr-6HG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="61.5" id="Wv0-6Z-3DO"/>
+                                    <constraint firstItem="2rn-Hw-IVH" firstAttribute="top" secondItem="4Jo-9Z-1HJ" secondAttribute="top" id="hbn-uJ-ooR"/>
+                                    <constraint firstItem="hcO-TV-w4H" firstAttribute="leading" secondItem="4Jo-9Z-1HJ" secondAttribute="leading" id="rha-Nx-WLQ"/>
+                                    <constraint firstItem="hcO-TV-w4H" firstAttribute="top" secondItem="Zei-Q2-WHZ" secondAttribute="bottom" id="taP-LL-FBX"/>
+                                    <constraint firstAttribute="trailing" secondItem="hcO-TV-w4H" secondAttribute="trailing" id="wGb-9X-aWs"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yFj-cm-8C3">
+                                <rect key="frame" x="0.0" y="448" width="375.5" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="170" id="SaZ-Fg-GaE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ktp-oG-hdY" firstAttribute="leading" secondItem="9hB-AM-DT1" secondAttribute="leading" id="L0L-zs-77A"/>
+                            <constraint firstItem="yFj-cm-8C3" firstAttribute="leading" secondItem="9hB-AM-DT1" secondAttribute="leading" id="Mst-c8-Zg9"/>
+                            <constraint firstItem="yFj-cm-8C3" firstAttribute="bottom" secondItem="9hB-AM-DT1" secondAttribute="bottom" id="aTp-6P-f5Z"/>
+                            <constraint firstItem="zyp-iu-Kav" firstAttribute="centerX" secondItem="ceP-7h-0nn" secondAttribute="centerX" id="fth-g7-BHf"/>
+                            <constraint firstItem="4Jo-9Z-1HJ" firstAttribute="centerX" secondItem="ceP-7h-0nn" secondAttribute="centerX" id="nsW-Yb-0WZ"/>
+                            <constraint firstItem="4Jo-9Z-1HJ" firstAttribute="top" secondItem="ktp-oG-hdY" secondAttribute="bottom" constant="8" id="oRl-hU-jMf"/>
+                            <constraint firstAttribute="trailing" secondItem="ktp-oG-hdY" secondAttribute="trailing" id="pLQ-oV-p3R"/>
+                            <constraint firstItem="yFj-cm-8C3" firstAttribute="top" secondItem="4Jo-9Z-1HJ" secondAttribute="bottom" constant="8" id="rng-mc-yex"/>
+                            <constraint firstAttribute="trailing" secondItem="yFj-cm-8C3" secondAttribute="trailing" id="sGD-wp-QcP"/>
+                            <constraint firstItem="ktp-oG-hdY" firstAttribute="top" secondItem="zyp-iu-Kav" secondAttribute="bottom" constant="8" id="t2k-kM-1DK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9hB-AM-DT1"/>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="zyp-iu-Kav" id="bZh-IF-DgF"/>
+                        <outlet property="endDateLabel" destination="hcO-TV-w4H" id="lOa-1f-S7b"/>
+                        <outlet property="imageView" destination="yFj-cm-8C3" id="xpe-ij-YtQ"/>
+                        <outlet property="mapView" destination="ktp-oG-hdY" id="lNI-wA-W7h"/>
+                        <outlet property="startDateLabel" destination="2rn-Hw-IVH" id="6EU-Em-vkR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ze2-wz-2br" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2561" y="125"/>
         </scene>
     </scenes>
 </document>
