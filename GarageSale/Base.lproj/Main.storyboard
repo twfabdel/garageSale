@@ -113,7 +113,7 @@
         <!--Item Images View Controller-->
         <scene sceneID="my8-z9-SKO">
             <objects>
-                <viewController id="ZsJ-FU-W1S" customClass="ItemImagesViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SaleItemImages" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZsJ-FU-W1S" customClass="ItemImagesViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9N5-dq-su0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

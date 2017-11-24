@@ -7,36 +7,76 @@
 //
 
 import UIKit
+import MapKit
 
-class SaleDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SaleDetailsViewController: UIViewController {
     
     var sale: SaleModel?
-
-    @IBOutlet weak var saleDetailsCollectionView: UICollectionView! {
-        didSet {
-            saleDetailsCollectionView.delegate = self
-            saleDetailsCollectionView.dataSource = self
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var endDateLabel: UILabel!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addressLabel.text = sale?.address
+        startDateLabel.text = sale?.dateStart?.description
+        endDateLabel.text = sale?.dateEnd?.description
+        
+        setMapLocation()
+        setImagePreview()
+        mapView.isUserInteractionEnabled = false
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Map and location
+    
+    private func setMapLocation() {
+        if let sale = sale {
+            let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+            let locationCoordinate = CLLocationCoordinate2D(latitude: sale.latitude, longitude: sale.longitude)
+            
+            mapView?.setRegion(MKCoordinateRegion(center: locationCoordinate, span: span), animated: true)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = locationCoordinate
+            mapView.addAnnotation(annotation)
         }
     }
     
-    // MARK: - CollectionView DataSource
+    // MARK: - Image Preview
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sale?.items?.count ?? 0
+    private func setImagePreview() {
+        if let imageData = (sale?.items?.allObjects.first as? ItemModel)?.image {
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            let image = UIImage(data: imageData)
+            imageView.image = image
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(showItemImages(_:)))
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(tap)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = saleDetailsCollectionView.dequeueReusableCell(withReuseIdentifier: "SaleDetailCell", for: indexPath)
-        
-        if let detailCell = cell as? SaleDetailsCollectionViewCell,
-            let itemsSet = sale?.items,
-            let item = itemsSet.allObjects[indexPath.row] as? ItemModel,
-            let itemImageData = item.image
-        {
-            detailCell.itemPriceLabel.text = item.price.priceString
-            detailCell.itemImageView.image = UIImage(data: itemImageData)
+    @objc private func showItemImages(_ sender: UITapGestureRecognizer) {
+        if sender.state != .ended {
+            return
         }
         
-        return cell
+        print("show items tap")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let itemImageVC = storyboard.instantiateViewController(withIdentifier: "SaleItemImages") as? ItemImagesViewController {
+            itemImageVC.saleItems = sale?.items?.allObjects
+            present(itemImageVC, animated: true, completion: nil)
+        }
     }
 }
