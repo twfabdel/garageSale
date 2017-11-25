@@ -148,23 +148,31 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="76G-5n-pT3">
+                                                    <rect key="frame" x="0.0" y="46.5" width="235" height="400"/>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jbI-JN-iYN">
-                                                    <rect key="frame" x="0.0" y="44" width="235" height="403"/>
+                                                    <rect key="frame" x="0.0" y="47" width="235" height="400"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="3KW-08-JGl" secondAttribute="bottom" constant="10" id="FbW-ci-JLN"/>
+                                            <constraint firstItem="3KW-08-JGl" firstAttribute="top" secondItem="76G-5n-pT3" secondAttribute="bottom" constant="8" id="S5S-Lr-XT2"/>
                                             <constraint firstItem="exF-d1-4BB" firstAttribute="top" secondItem="u9j-EG-IID" secondAttribute="topMargin" constant="10" id="W0G-Fx-oTd"/>
                                             <constraint firstItem="3KW-08-JGl" firstAttribute="centerX" secondItem="u9j-EG-IID" secondAttribute="centerX" id="WHg-E2-PiY"/>
                                             <constraint firstAttribute="trailing" secondItem="jbI-JN-iYN" secondAttribute="trailing" id="WMi-3T-JDy"/>
-                                            <constraint firstItem="jbI-JN-iYN" firstAttribute="top" secondItem="exF-d1-4BB" secondAttribute="bottom" constant="5" id="Xrd-ac-Oam"/>
+                                            <constraint firstItem="76G-5n-pT3" firstAttribute="leading" secondItem="u9j-EG-IID" secondAttribute="leading" id="Wqx-iH-rXE"/>
+                                            <constraint firstItem="jbI-JN-iYN" firstAttribute="top" secondItem="exF-d1-4BB" secondAttribute="bottom" constant="8" id="Xrd-ac-Oam"/>
                                             <constraint firstItem="3KW-08-JGl" firstAttribute="top" secondItem="jbI-JN-iYN" secondAttribute="bottom" constant="8" id="aSt-oD-Yna"/>
                                             <constraint firstItem="jbI-JN-iYN" firstAttribute="leading" secondItem="u9j-EG-IID" secondAttribute="leading" id="cyj-U1-WZo"/>
+                                            <constraint firstAttribute="trailing" secondItem="76G-5n-pT3" secondAttribute="trailing" id="dZI-II-uzy"/>
                                             <constraint firstItem="exF-d1-4BB" firstAttribute="centerX" secondItem="u9j-EG-IID" secondAttribute="centerX" id="eUV-dM-SDw"/>
+                                            <constraint firstItem="76G-5n-pT3" firstAttribute="top" secondItem="exF-d1-4BB" secondAttribute="bottom" constant="8" id="wkh-Xb-vpQ"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="backgroundImageView" destination="76G-5n-pT3" id="Wdh-BR-LZu"/>
                                             <outlet property="itemImageView" destination="jbI-JN-iYN" id="DOm-Um-64S"/>
                                             <outlet property="itemPriceLabel" destination="3KW-08-JGl" id="RLN-za-lkL"/>
                                         </connections>
