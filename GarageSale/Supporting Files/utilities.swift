@@ -15,6 +15,14 @@ public extension Float {
     }
 }
 
+public extension Date {
+    var formattedString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d, yyyy h:mm a"
+        return formatter.string(from: self)
+    }
+}
+
 /* UITextField extension adapted from
  * https://stackoverflow.com/questions/38133853/how-to-add-a-return-key-on-a-decimal-pad-in-swift
  */

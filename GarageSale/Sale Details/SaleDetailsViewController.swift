@@ -24,8 +24,10 @@ class SaleDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         addressLabel.text = sale?.address
-        startDateLabel.text = sale?.dateStart?.description
-        endDateLabel.text = sale?.dateEnd?.description
+//        startDateLabel.text = sale?.dateStart?.description
+//        endDateLabel.text = sale?.dateEnd?.description
+        startDateLabel.text = sale?.dateStart?.formattedString
+        endDateLabel.text = sale?.dateEnd?.formattedString
         
         setMapLocation()
         setImagePreview()
