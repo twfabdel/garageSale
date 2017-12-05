@@ -9,8 +9,6 @@
 import UIKit
 import CoreData
 
-extension String: Error{}
-
 public struct GarageSale {
     var address: String?
     var date: Date?
@@ -53,3 +51,5 @@ public struct GarageSale {
         return true
     }
 }
+
+extension String: Error{}

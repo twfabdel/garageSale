@@ -16,9 +16,21 @@ public extension Float {
 }
 
 public extension Date {
-    var formattedString: String {
+    var fullFormattedString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d, yyyy h:mm a"
+        return formatter.string(from: self)
+    }
+    
+    var dateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        return formatter.string(from: self)
+    }
+    
+    var timeString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
         return formatter.string(from: self)
     }
 }

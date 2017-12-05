@@ -29,8 +29,8 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
 
         addressLabel.text = newSale?.address
-        dateLabel.text = newSale?.date?.formattedString
-        timeLabel.text = newSale?.timeStart?.formattedString
+        dateLabel.text = newSale?.date?.dateString
+        timeLabel.text = newSale?.timeStart?.timeString
     }
 
     override func didReceiveMemoryWarning() {

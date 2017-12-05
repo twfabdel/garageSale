@@ -18,8 +18,13 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(dismissKeyboardTap)
+        datePicker.minimumDate = Date()
+        startTimePicker.addTarget(self, action: #selector(startTimeChanged(_:)), for: .valueChanged)
+        startTimeChanged(startTimePicker)
+    }
+    
+    @objc func startTimeChanged(_ picker: UIDatePicker) {
+        endTimePicker.setDate(picker.date.addingTimeInterval(1.0 * 60.0 * 60.0), animated: true)
     }
     
     // MARK: - Navigation
