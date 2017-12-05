@@ -36,11 +36,12 @@
                     <navigationItem key="navigationItem" id="hSJ-QF-bOU"/>
                     <connections>
                         <outlet property="saleMap" destination="ZlA-dJ-wML" id="WXx-IF-d9E"/>
+                        <segue destination="jXo-To-p8D" kind="show" identifier="AnnotationSegue" id="hKT-O1-h3v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Srh-Yg-zO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="1657"/>
+            <point key="canvasLocation" x="1788" y="1657"/>
         </scene>
         <!--Sale List View Controller-->
         <scene sceneID="Ofg-VP-E5y">
@@ -324,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isi-K8-tEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="899"/>
+            <point key="canvasLocation" x="2906" y="897"/>
         </scene>
         <!--Items-->
         <scene sceneID="1Ct-4S-0yj">
@@ -423,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTT-l2-dW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3256.8000000000002" y="897.30134932533736"/>
+            <point key="canvasLocation" x="3662" y="896"/>
         </scene>
         <!--Verify Sale-->
         <scene sceneID="Q0X-sb-bXs">
@@ -565,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbA-rX-L6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4013.5999999999999" y="896.40179910044981"/>
+            <point key="canvasLocation" x="4418" y="896"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mCU-rC-d3V">
@@ -768,7 +769,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ze2-wz-2br" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="125"/>
+            <point key="canvasLocation" x="2711" y="125"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hKT-O1-h3v"/>
+    </inferredMetricsTieBreakers>
 </document>

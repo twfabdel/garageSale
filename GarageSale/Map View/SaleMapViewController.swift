@@ -48,13 +48,6 @@ class SaleMapViewController: MapSearchViewController, MKMapViewDelegate {
     private func placePins(of sales: [SaleModel]) {
         saleMap.removeAnnotations(saleMap.annotations)
         sales.forEach {
-            
-            //let annotation = MKAnnotation()
-            
-            //annotation.coordinate =
-            //let coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
-            //let annotation = SaleAnnotation(title: "Title", subtitle: "subtitle", coordinate: coordinate)
-            //annotation.subtitle = $0.address
             let annotation = SaleAnnotation(sale: $0)
             saleMap.addAnnotation(annotation)
         }
@@ -84,10 +77,28 @@ class SaleMapViewController: MapSearchViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? SaleAnnotation else { return }
-        print("\(annotation.title) touched")
+        performSegue(withIdentifier: MapConstants.SEGUE_IDENTIFIER, sender: annotation)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == MapConstants.SEGUE_IDENTIFIER {
+            if let _ = (sender as? SaleAnnotation)?.sale {
+                return true
+            }
+        }
+        return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sale = (sender as? SaleAnnotation)?.sale,
+            let destination = segue.destination as? SaleDetailsViewController
+        {
+            destination.sale = sale
+        }
     }
     
     private struct MapConstants {
         static let REUSE_PIN_IDENTIFIER = "calloutPin"
+        static let SEGUE_IDENTIFIER = "AnnotationSegue"
     }
 }
