@@ -24,7 +24,6 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.saleTableView.reloadData()
         loadData()
     }
     
@@ -61,21 +60,19 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
             let garageSale = garageSales[indexPath.row]
             saleCell.locationLabel.text = garageSale.address
             saleCell.dateLabel.text = garageSale.dateStart?.description
+            saleCell.sale = garageSale
         }
     
         return cell
     }
     
-//    @IBAction func newGarageSale(_ sender: UIBarButtonItem) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        if let navVC = storyboard.instantiateViewController(withIdentifier: "NewGarageSaleFlow") as? UINavigationController {
-//            if let locationVC = navVC.viewControllers.first as? LocationSelectionViewController {
-//                locationVC.creationCompletionHandler = { [weak self] in
-//                    self?.loadData()
-//                }
-//                self.present(navVC, animated: true, completion: nil)
-//            }
-//        }
-//    }
-
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sourceCell = sender as? SaleListTableViewCell,
+            let destination = segue.destination as? SaleDetailsViewController
+        {
+            destination.sale = sourceCell.sale
+        }
+    }
 }

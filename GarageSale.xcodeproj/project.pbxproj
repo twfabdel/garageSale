@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8925BDC1FD33A8C0017EA3E /* SaleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */; };
+		B8925BDE1FD66D840017EA3E /* GarageSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDD1FD66D840017EA3E /* GarageSale.swift */; };
 		B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */; };
 		B8CF0D851FBF4E12002FE457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D831FBF4E12002FE457 /* Main.storyboard */; };
 		B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */; };
@@ -21,9 +23,19 @@
 		B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */; };
 		B8CF0DAB1FC0F6F0002FE457 /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DAA1FC0F6F0002FE457 /* LocationSelectionViewController.swift */; };
 		B8CF0DAF1FC292EF002FE457 /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DAE1FC292EF002FE457 /* MapSearchViewController.swift */; };
+		B8CF0DB21FC4D444002FE457 /* ImageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DB11FC4D444002FE457 /* ImageSelectionViewController.swift */; };
+		B8CF0DB61FC556F5002FE457 /* AddItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DB51FC556F5002FE457 /* AddItemCollectionViewCell.swift */; };
+		B8CF0DB81FC66773002FE457 /* VerifyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DB71FC66773002FE457 /* VerifyDetailsViewController.swift */; };
+		B8CF0DBA1FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0DB91FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift */; };
+		B8CFBCF91FC8AB990038CEDE /* ItemImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CFBCF81FC8AB990038CEDE /* ItemImagesViewController.swift */; };
+		B8D762481FC7647F00B22023 /* SaleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D762471FC7647F00B22023 /* SaleDetailsViewController.swift */; };
+		B8D7624B1FC7650300B22023 /* SaleDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7624A1FC7650300B22023 /* SaleDetailsCollectionViewCell.swift */; };
+		B8D7624D1FC7714F00B22023 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7624C1FC7714F00B22023 /* utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAnnotation.swift; sourceTree = "<group>"; };
+		B8925BDD1FD66D840017EA3E /* GarageSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSale.swift; sourceTree = "<group>"; };
 		B8CF0D7C1FBF4E12002FE457 /* GarageSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarageSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8CF0D841FBF4E12002FE457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +52,14 @@
 		B8CF0DA81FBFF58D002FE457 /* MapSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchTableViewController.swift; sourceTree = "<group>"; };
 		B8CF0DAA1FC0F6F0002FE457 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewController.swift; sourceTree = "<group>"; };
 		B8CF0DAE1FC292EF002FE457 /* MapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
+		B8CF0DB11FC4D444002FE457 /* ImageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionViewController.swift; sourceTree = "<group>"; };
+		B8CF0DB51FC556F5002FE457 /* AddItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8CF0DB71FC66773002FE457 /* VerifyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDetailsViewController.swift; sourceTree = "<group>"; };
+		B8CF0DB91FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8CFBCF81FC8AB990038CEDE /* ItemImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImagesViewController.swift; sourceTree = "<group>"; };
+		B8D762471FC7647F00B22023 /* SaleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailsViewController.swift; sourceTree = "<group>"; };
+		B8D7624A1FC7650300B22023 /* SaleDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8D7624C1FC7714F00B22023 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +95,14 @@
 		B8CF0D7E1FBF4E12002FE457 /* GarageSale */ = {
 			isa = PBXGroup;
 			children = (
+				B8CF0D831FBF4E12002FE457 /* Main.storyboard */,
+				B8D762491FC764E700B22023 /* Sale Details */,
 				B8CF0D961FBF548A002FE457 /* Creation Flow */,
 				B8CF0D951FBF5471002FE457 /* Map Search Controllers */,
 				B8CF0DB01FC294EA002FE457 /* Map View */,
 				B8CF0D941FBF545E002FE457 /* List View */,
-				B8CF0D831FBF4E12002FE457 /* Main.storyboard */,
 				B8CF0D971FBF54AD002FE457 /* Supporting Files */,
+				B8925BDD1FD66D840017EA3E /* GarageSale.swift */,
 				B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */,
 			);
 			path = GarageSale;
@@ -109,6 +131,10 @@
 			children = (
 				B8CF0D9A1FBF57CD002FE457 /* DateSelectionViewController.swift */,
 				B8CF0DAA1FC0F6F0002FE457 /* LocationSelectionViewController.swift */,
+				B8CF0DB11FC4D444002FE457 /* ImageSelectionViewController.swift */,
+				B8CF0DB51FC556F5002FE457 /* AddItemCollectionViewCell.swift */,
+				B8CF0DB71FC66773002FE457 /* VerifyDetailsViewController.swift */,
+				B8CF0DB91FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift */,
 			);
 			path = "Creation Flow";
 			sourceTree = "<group>";
@@ -120,6 +146,7 @@
 				B8CF0D891FBF4E12002FE457 /* Assets.xcassets */,
 				B8CF0D8B1FBF4E12002FE457 /* LaunchScreen.storyboard */,
 				B8CF0D8E1FBF4E12002FE457 /* Info.plist */,
+				B8D7624C1FC7714F00B22023 /* utilities.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,8 +164,19 @@
 			isa = PBXGroup;
 			children = (
 				B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */,
+				B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */,
 			);
 			path = "Map View";
+			sourceTree = "<group>";
+		};
+		B8D762491FC764E700B22023 /* Sale Details */ = {
+			isa = PBXGroup;
+			children = (
+				B8D762471FC7647F00B22023 /* SaleDetailsViewController.swift */,
+				B8CFBCF81FC8AB990038CEDE /* ItemImagesViewController.swift */,
+				B8D7624A1FC7650300B22023 /* SaleDetailsCollectionViewCell.swift */,
+			);
+			path = "Sale Details";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,15 +251,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D7624B1FC7650300B22023 /* SaleDetailsCollectionViewCell.swift in Sources */,
 				B8CF0D9B1FBF57CD002FE457 /* DateSelectionViewController.swift in Sources */,
+				B8CF0DB21FC4D444002FE457 /* ImageSelectionViewController.swift in Sources */,
 				B8CF0D9D1FBF5F8C002FE457 /* SaleListTableViewCell.swift in Sources */,
+				B8CF0DB61FC556F5002FE457 /* AddItemCollectionViewCell.swift in Sources */,
 				B8CF0DA21FBFAC1E002FE457 /* SaleMapViewController.swift in Sources */,
+				B8D7624D1FC7714F00B22023 /* utilities.swift in Sources */,
 				B8CF0DAF1FC292EF002FE457 /* MapSearchViewController.swift in Sources */,
+				B8CF0DB81FC66773002FE457 /* VerifyDetailsViewController.swift in Sources */,
 				B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */,
+				B8CF0DBA1FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift in Sources */,
+				B8925BDC1FD33A8C0017EA3E /* SaleAnnotation.swift in Sources */,
 				B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */,
 				B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */,
 				B8CF0DAB1FC0F6F0002FE457 /* LocationSelectionViewController.swift in Sources */,
+				B8D762481FC7647F00B22023 /* SaleDetailsViewController.swift in Sources */,
 				B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */,
+				B8925BDE1FD66D840017EA3E /* GarageSale.swift in Sources */,
+				B8CFBCF91FC8AB990038CEDE /* ItemImagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
