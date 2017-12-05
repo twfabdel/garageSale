@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AqQ-VD-fxu">
-                                <rect key="frame" x="37" y="20" width="301" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="D4A-nW-wAf">
                                     <size key="itemSize" width="235" height="494"/>
@@ -179,28 +179,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▶" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQW-56-edG">
-                                <rect key="frame" x="343" y="315.5" width="27" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI5-rz-SKm">
-                                <rect key="frame" x="5" y="315.5" width="27" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AqQ-VD-fxu" firstAttribute="leading" secondItem="SI5-rz-SKm" secondAttribute="trailing" constant="5" id="2Ek-xG-5bC"/>
-                            <constraint firstItem="GQW-56-edG" firstAttribute="centerY" secondItem="9N5-dq-su0" secondAttribute="centerY" id="F8z-vk-xcG"/>
+                            <constraint firstItem="AqQ-VD-fxu" firstAttribute="leading" secondItem="1qk-Ok-jI8" secondAttribute="leading" id="OyC-fa-1Qx"/>
                             <constraint firstItem="1qk-Ok-jI8" firstAttribute="bottom" secondItem="AqQ-VD-fxu" secondAttribute="bottom" id="Rbf-KG-rGc"/>
-                            <constraint firstItem="GQW-56-edG" firstAttribute="leading" secondItem="AqQ-VD-fxu" secondAttribute="trailing" constant="5" id="SMH-X2-IJf"/>
-                            <constraint firstItem="SI5-rz-SKm" firstAttribute="leading" secondItem="1qk-Ok-jI8" secondAttribute="leading" constant="5" id="bVS-AN-wrq"/>
-                            <constraint firstItem="1qk-Ok-jI8" firstAttribute="trailing" secondItem="GQW-56-edG" secondAttribute="trailing" constant="5" id="jRy-B4-abF"/>
-                            <constraint firstItem="SI5-rz-SKm" firstAttribute="centerY" secondItem="9N5-dq-su0" secondAttribute="centerY" id="qIz-8m-SW8"/>
+                            <constraint firstItem="1qk-Ok-jI8" firstAttribute="trailing" secondItem="AqQ-VD-fxu" secondAttribute="trailing" id="pAK-3a-c8c"/>
                             <constraint firstItem="AqQ-VD-fxu" firstAttribute="top" secondItem="1qk-Ok-jI8" secondAttribute="top" id="seN-7U-KUg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1qk-Ok-jI8"/>

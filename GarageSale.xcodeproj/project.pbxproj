@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8925BDC1FD33A8C0017EA3E /* SaleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */; };
 		B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */; };
 		B8CF0D851FBF4E12002FE457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D831FBF4E12002FE457 /* Main.storyboard */; };
 		B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAnnotation.swift; sourceTree = "<group>"; };
 		B8CF0D7C1FBF4E12002FE457 /* GarageSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarageSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8CF0D841FBF4E12002FE457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				B8CF0DA11FBFAC1E002FE457 /* SaleMapViewController.swift */,
+				B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */,
 			);
 			path = "Map View";
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				B8CF0DB81FC66773002FE457 /* VerifyDetailsViewController.swift in Sources */,
 				B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */,
 				B8CF0DBA1FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift in Sources */,
+				B8925BDC1FD33A8C0017EA3E /* SaleAnnotation.swift in Sources */,
 				B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */,
 				B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */,
 				B8CF0DAB1FC0F6F0002FE457 /* LocationSelectionViewController.swift in Sources */,
