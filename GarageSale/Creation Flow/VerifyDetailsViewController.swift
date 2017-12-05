@@ -15,8 +15,8 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
     var items: [SaleItem]?
     
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var itemsCollectionView: UICollectionView! {
         didSet {
@@ -29,8 +29,8 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
 
         addressLabel.text = newSale?.address
-        startDateLabel.text = newSale?.dateStart?.description
-        endDateLabel.text = newSale?.dateEnd?.description
+        dateLabel.text = newSale?.date?.formattedString
+        timeLabel.text = newSale?.timeStart?.formattedString
     }
 
     override func didReceiveMemoryWarning() {

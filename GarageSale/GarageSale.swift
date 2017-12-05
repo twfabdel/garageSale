@@ -13,8 +13,9 @@ extension String: Error{}
 
 public struct GarageSale {
     var address: String?
-    var dateEnd: Date?
-    var dateStart: Date?
+    var date: Date?
+    var timeStart: Date?
+    var timeEnd: Date?
     var datePosted: Date?
     var latitude: Double?
     var longitude: Double?
@@ -40,11 +41,12 @@ public struct GarageSale {
     }
     
     private func setAttributes(on sale: SaleModel) -> Bool {
-        guard let newAddress = address, let newDateEnd = dateEnd, let newDateStart = dateStart,
+        guard let newAddress = address, let newTimeEnd = timeEnd, let newTimeStart = timeStart, let newDate = date,
             let newLatitude = latitude, let newLongitude = longitude else { return false }
         sale.address = newAddress
-        sale.dateEnd = newDateEnd
-        sale.dateStart = newDateStart
+        sale.timeStart = newTimeStart
+        sale.timeEnd = newTimeEnd
+        sale.date = newDate
         sale.datePosted = Date()
         sale.latitude = newLatitude
         sale.longitude = newLongitude

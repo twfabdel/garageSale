@@ -14,8 +14,8 @@ class SaleDetailsViewController: UIViewController {
     var sale: SaleModel?
     
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var imageView: UIImageView!
@@ -26,8 +26,8 @@ class SaleDetailsViewController: UIViewController {
         addressLabel.text = sale?.address
 //        startDateLabel.text = sale?.dateStart?.description
 //        endDateLabel.text = sale?.dateEnd?.description
-        startDateLabel.text = sale?.dateStart?.formattedString
-        endDateLabel.text = sale?.dateEnd?.formattedString
+        dateLabel.text = sale?.date?.formattedString
+        timeLabel.text = (sale?.timeStart?.formattedString ?? "") + " - " + (sale?.timeEnd?.formattedString ?? "")
         
         setMapLocation()
         setImagePreview()

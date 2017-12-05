@@ -59,7 +59,7 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         if let saleCell = cell as? SaleListTableViewCell {
             let garageSale = garageSales[indexPath.row]
             saleCell.locationLabel.text = garageSale.address
-            saleCell.dateLabel.text = garageSale.dateStart?.description
+            saleCell.dateLabel.text = garageSale.date?.formattedString
             saleCell.sale = garageSale
         }
     

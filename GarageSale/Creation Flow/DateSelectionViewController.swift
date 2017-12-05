@@ -12,10 +12,9 @@ import CoreData
 class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     var newSale: GarageSale?
     
-    @IBOutlet weak var startDatePicker: UIDatePicker!
-    @IBOutlet weak var endDatePicker: UIDatePicker!
-    
-    //var managedObjectContext: NSManagedObjectContext!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var startTimePicker: UIDatePicker!
+    @IBOutlet weak var endTimePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +26,9 @@ class DateSelectionViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageVC = segue.destination as? ImageSelectionViewController {
-            newSale?.dateStart = startDatePicker.date
-            newSale?.dateEnd = endDatePicker.date
+            newSale?.date = datePicker.date
+            newSale?.timeStart = startTimePicker.date
+            newSale?.timeEnd = endTimePicker.date
             
             imageVC.newSale = newSale
         }
