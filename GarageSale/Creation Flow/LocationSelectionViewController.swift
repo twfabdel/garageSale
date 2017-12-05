@@ -12,9 +12,7 @@ import CoreLocation
 import CoreData
 
 class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegate {
-
-    var newSale: SaleModel?
-    var managedObjectContext: NSManagedObjectContext!
+    var newSale: GarageSale?
     let geocoder = CLGeocoder()
     
     @IBOutlet weak var newLocationMap: MKMapView! {
@@ -26,8 +24,7 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
     var addressIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
-        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        newSale = SaleModel(context: managedObjectContext)
+        newSale = GarageSale()
         
         map = newLocationMap
         createMapPin()
@@ -87,7 +84,7 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
             newSale?.address = addressLabel.text
             newSale?.latitude = mapView.centerCoordinate.latitude
             newSale?.longitude = mapView.centerCoordinate.longitude
-            newSale?.id = UUID()
+            //newSale?.id = UUID()
             
             dateSelectionVC.newSale = newSale
         }

@@ -10,21 +10,15 @@ import UIKit
 import CoreData
 
 class DateSelectionViewController: UIViewController, UITextFieldDelegate {
-
-//    var address: String?
-//    var latitude: Double?
-//    var longitude: Double?
-    var newSale: SaleModel?
+    var newSale: GarageSale?
     
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
-    var managedObjectContext: NSManagedObjectContext!
+    //var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         self.view.addGestureRecognizer(dismissKeyboardTap)
     }

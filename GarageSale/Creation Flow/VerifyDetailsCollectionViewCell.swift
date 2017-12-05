@@ -11,5 +11,4 @@ import UIKit
 class VerifyDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
-    
 }

@@ -11,9 +11,9 @@ import CoreData
 
 class ImageSelectionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var newSale: SaleModel?
+    var newSale: GarageSale?
     let imagePicker = UIImagePickerController()
-    var items = [saleItem]()
+    var items = [SaleItem]()
 
     @IBOutlet weak var itemCollectionView: UICollectionView! {
         didSet {
@@ -81,7 +81,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            items.append(saleItem(image: image))
+            items.append(SaleItem(image: image))
             self.itemCollectionView.reloadData()
         } else {
             print("Error selecting image")
@@ -127,7 +127,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     }
 }
 
-struct saleItem {
+struct SaleItem {
     var price: Float?
     var image: UIImage
     

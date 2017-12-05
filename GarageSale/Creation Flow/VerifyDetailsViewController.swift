@@ -11,8 +11,8 @@ import CoreData
 
 class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
 
-    var newSale: SaleModel?
-    var items: [saleItem]?
+    var newSale: GarageSale?
+    var items: [SaleItem]?
     
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
@@ -56,19 +56,10 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
 
     @IBAction func done(_ sender: UIBarButtonItem) {
         newSale?.datePosted = Date()
-        let managedObjectContext = newSale!.managedObjectContext!
-        let entityItem = NSEntityDescription.entity(forEntityName: "ItemModel", in: managedObjectContext)
-        items?.forEach { saleItem in
-            let newItem = ItemModel(entity: entityItem!, insertInto: managedObjectContext)
-            let imgData = UIImageJPEGRepresentation(saleItem.image, 0.8)
-            newItem.image = imgData
-            if let price = saleItem.price {
-                newItem.price = price
-            }
-            newSale?.addToItems(newItem)
-        }
+        newSale?.items = items
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {
-            try self.newSale!.managedObjectContext!.save()
+            try newSale?.save(withManagedObjectContext: managedObjectContext)
             print("successfully saved data")
             resetView()
         } catch {

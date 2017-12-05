@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B8925BDC1FD33A8C0017EA3E /* SaleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */; };
+		B8925BDE1FD66D840017EA3E /* GarageSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDD1FD66D840017EA3E /* GarageSale.swift */; };
 		B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */; };
 		B8CF0D851FBF4E12002FE457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D831FBF4E12002FE457 /* Main.storyboard */; };
 		B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		B8925BDB1FD33A8C0017EA3E /* SaleAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAnnotation.swift; sourceTree = "<group>"; };
+		B8925BDD1FD66D840017EA3E /* GarageSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSale.swift; sourceTree = "<group>"; };
 		B8CF0D7C1FBF4E12002FE457 /* GarageSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarageSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8CF0D841FBF4E12002FE457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				B8CF0DB01FC294EA002FE457 /* Map View */,
 				B8CF0D941FBF545E002FE457 /* List View */,
 				B8CF0D971FBF54AD002FE457 /* Supporting Files */,
+				B8925BDD1FD66D840017EA3E /* GarageSale.swift */,
 				B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */,
 			);
 			path = GarageSale;
@@ -265,6 +268,7 @@
 				B8CF0DAB1FC0F6F0002FE457 /* LocationSelectionViewController.swift in Sources */,
 				B8D762481FC7647F00B22023 /* SaleDetailsViewController.swift in Sources */,
 				B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */,
+				B8925BDE1FD66D840017EA3E /* GarageSale.swift in Sources */,
 				B8CFBCF91FC8AB990038CEDE /* ItemImagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
