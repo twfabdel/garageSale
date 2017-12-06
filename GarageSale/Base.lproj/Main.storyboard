@@ -556,10 +556,10 @@
             </objects>
             <point key="canvasLocation" x="4418" y="896"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Popping Tab Bar-->
         <scene sceneID="mCU-rC-d3V">
             <objects>
-                <tabBarController id="DIg-zt-Btw" sceneMemberID="viewController">
+                <tabBarController id="DIg-zt-Btw" customClass="PoppingTabBar" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CDW-Qc-y7D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -721,13 +721,21 @@
                                     <constraint firstAttribute="height" priority="750" constant="170" id="SaZ-Fg-GaE"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHA-Jr-47U" customClass="PaddedLabel" customModule="GarageSale" customModuleProvider="target">
+                                <rect key="frame" x="161.5" y="583.5" width="52.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FHA-Jr-47U" firstAttribute="centerX" secondItem="ceP-7h-0nn" secondAttribute="centerX" id="HMN-bC-7TX"/>
                             <constraint firstItem="ktp-oG-hdY" firstAttribute="leading" secondItem="9hB-AM-DT1" secondAttribute="leading" id="L0L-zs-77A"/>
                             <constraint firstItem="yFj-cm-8C3" firstAttribute="leading" secondItem="9hB-AM-DT1" secondAttribute="leading" id="Mst-c8-Zg9"/>
                             <constraint firstItem="yFj-cm-8C3" firstAttribute="bottom" secondItem="9hB-AM-DT1" secondAttribute="bottom" id="aTp-6P-f5Z"/>
                             <constraint firstItem="zyp-iu-Kav" firstAttribute="centerX" secondItem="ceP-7h-0nn" secondAttribute="centerX" id="fth-g7-BHf"/>
+                            <constraint firstItem="9hB-AM-DT1" firstAttribute="bottom" secondItem="FHA-Jr-47U" secondAttribute="bottom" constant="8" id="ihg-Fp-1Yd"/>
                             <constraint firstItem="4Jo-9Z-1HJ" firstAttribute="centerX" secondItem="ceP-7h-0nn" secondAttribute="centerX" id="nsW-Yb-0WZ"/>
                             <constraint firstItem="4Jo-9Z-1HJ" firstAttribute="top" secondItem="ktp-oG-hdY" secondAttribute="bottom" constant="8" id="oRl-hU-jMf"/>
                             <constraint firstAttribute="trailing" secondItem="ktp-oG-hdY" secondAttribute="trailing" id="pLQ-oV-p3R"/>
@@ -741,6 +749,7 @@
                         <outlet property="addressLabel" destination="zyp-iu-Kav" id="bZh-IF-DgF"/>
                         <outlet property="dateLabel" destination="2rn-Hw-IVH" id="6EU-Em-vkR"/>
                         <outlet property="imageView" destination="yFj-cm-8C3" id="xpe-ij-YtQ"/>
+                        <outlet property="itemCountLabel" destination="FHA-Jr-47U" id="LDv-6e-Ajk"/>
                         <outlet property="mapView" destination="ktp-oG-hdY" id="lNI-wA-W7h"/>
                         <outlet property="timeLabel" destination="hcO-TV-w4H" id="lOa-1f-S7b"/>
                     </connections>
@@ -751,6 +760,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hKT-O1-h3v"/>
+        <segue reference="NBb-lH-T9c"/>
     </inferredMetricsTieBreakers>
 </document>

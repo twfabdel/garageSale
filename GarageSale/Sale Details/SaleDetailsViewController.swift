@@ -19,6 +19,7 @@ class SaleDetailsViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var itemCountLabel: PaddedLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,20 @@ class SaleDetailsViewController: UIViewController {
             imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(tap)
         }
+        
+        setItemCountLabel()
+    }
+    
+    private func setItemCountLabel() {
+        guard let count = sale?.items?.count else { return }
+        var labelText = "\(count) Featured Item"
+        if count > 1 {
+            labelText += "s"
+        }
+        itemCountLabel.text = labelText
+        itemCountLabel.backgroundColor = GlobalConstants.labelBackgroundColor
+        itemCountLabel.layer.cornerRadius = GlobalConstants.labelCornerRadius
+        itemCountLabel.layer.masksToBounds = true
     }
     
     @objc private func showItemImages(_ sender: UITapGestureRecognizer) {

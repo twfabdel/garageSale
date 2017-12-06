@@ -34,6 +34,7 @@ class LocationSelectionViewController: MapSearchViewController, MKMapViewDelegat
         addressIndicator.hidesWhenStopped = true
         self.view.addSubview(addressIndicator)
         
+        super.searchBarPlaceholder = "Garage Sale Address:"
         super.viewDidLoad()
     }
     

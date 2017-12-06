@@ -10,20 +10,37 @@ import CoreLocation
 import UIKit
 
 public struct GlobalConstants {
-    static let labelCornerRadius: CGFloat = 5.0
+    static let labelCornerRadius: CGFloat = 8.0
     static let labelBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8)
+    static let labelYInset: CGFloat = 5.0
+    static let labelXInset: CGFloat = 8.0
+}
+
+class PoppingTabBar: UITabBarController, UITabBarControllerDelegate {
+    override func viewDidLoad() {
+        delegate = self
+        super.viewDidLoad()
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let navVC = viewController as? UINavigationController {
+            navVC.popToRootViewController(animated: false)
+        }
+    }
 }
 
 class PaddedLabel: UILabel {
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)))
+        let insetX = GlobalConstants.labelXInset
+        let insetY = GlobalConstants.labelYInset
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)))
     }
     
     override var intrinsicContentSize: CGSize {
         get {
             var contentSize = super.intrinsicContentSize
-            contentSize.height += 5 + 5
-            contentSize.width += 5 + 5
+            contentSize.height += 2*GlobalConstants.labelYInset
+            contentSize.width += 2*GlobalConstants.labelXInset
             return contentSize
         }
     }

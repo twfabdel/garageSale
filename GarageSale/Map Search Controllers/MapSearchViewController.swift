@@ -50,6 +50,8 @@ class MapSearchViewController: UIViewController, CLLocationManagerDelegate, UISe
     /* Search table design adapted from
      * https://www.thorntech.com/2016/01/how-to-search-for-location-using-apples-mapkit/
      */
+    
+    var searchBarPlaceholder = "Search for garage sales near:"
     private func initializeSearchTable() {
         if let saleSearchTable = storyboard?.instantiateViewController(withIdentifier: "MapSearchTable") as? MapSearchTableViewController {
             resultSearchController = UISearchController(searchResultsController: saleSearchTable)
@@ -58,7 +60,7 @@ class MapSearchViewController: UIViewController, CLLocationManagerDelegate, UISe
             
             let searchBar = resultSearchController!.searchBar
             searchBar.sizeToFit()
-            searchBar.placeholder = "Search for garage sales near:"
+            searchBar.placeholder = searchBarPlaceholder
             
             navigationItem.titleView = resultSearchController?.searchBar
             resultSearchController.hidesNavigationBarDuringPresentation = false
