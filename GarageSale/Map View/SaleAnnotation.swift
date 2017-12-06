@@ -17,7 +17,8 @@ class SaleAnnotation: NSObject, MKAnnotation {
     init(sale: SaleModel) {
         self.coordinate = CLLocationCoordinate2D(latitude: sale.latitude, longitude: sale.longitude)
         self.sale = sale
-        self.title = sale.address
+        self.title = sale.title
+        self.subtitle = sale.address
         super.init()
     }
 }

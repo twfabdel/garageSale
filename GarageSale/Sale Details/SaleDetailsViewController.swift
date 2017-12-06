@@ -23,6 +23,8 @@ class SaleDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = sale?.title
+        
         addressLabel.text = sale?.address
         dateLabel.text = sale?.date?.dateString
         timeLabel.text = (sale?.timeStart?.timeString ?? "") + " - " + (sale?.timeEnd?.timeString ?? "")
@@ -30,11 +32,6 @@ class SaleDetailsViewController: UIViewController {
         setMapLocation()
         setImagePreview()
         mapView.isUserInteractionEnabled = false
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Map and location

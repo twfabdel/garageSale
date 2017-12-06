@@ -28,6 +28,12 @@ public extension Date {
         return formatter.string(from: self)
     }
     
+    var shortDateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d"
+        return formatter.string(from: self)
+    }
+    
     var timeString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"

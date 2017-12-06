@@ -62,31 +62,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-gO-qC7">
-                                                    <rect key="frame" x="5" y="31" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-a1-JGw">
-                                                    <rect key="frame" x="323" y="31" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yL8-sU-W7e">
+                                                    <rect key="frame" x="16" y="4" width="351" height="75.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLX-Xg-ZJU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="36"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-gO-qC7">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="208.5" height="36"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-a1-JGw">
+                                                                    <rect key="frame" x="216.5" y="0.0" width="134.5" height="36"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmr-RB-KSl">
+                                                            <rect key="frame" x="0.0" y="44" width="351" height="31.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ppr-gO-qC7" secondAttribute="trailing" constant="20" symbolic="YES" id="APd-2L-o0X"/>
-                                                <constraint firstItem="RTd-a1-JGw" firstAttribute="trailing" secondItem="WhK-ep-hds" secondAttribute="trailingMargin" constant="5" id="KSc-CU-E4m"/>
-                                                <constraint firstItem="ppr-gO-qC7" firstAttribute="leading" secondItem="WhK-ep-hds" secondAttribute="leading" constant="5" id="Vxk-Ka-HGT"/>
-                                                <constraint firstItem="ppr-gO-qC7" firstAttribute="centerY" secondItem="WhK-ep-hds" secondAttribute="centerY" id="XFS-Bn-c5X"/>
-                                                <constraint firstItem="RTd-a1-JGw" firstAttribute="centerY" secondItem="ppr-gO-qC7" secondAttribute="centerY" id="bQ6-dm-lmn"/>
-                                                <constraint firstItem="RTd-a1-JGw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WhK-ep-hds" secondAttribute="leadingMargin" id="lPw-w5-BEM"/>
+                                                <constraint firstItem="yL8-sU-W7e" firstAttribute="top" secondItem="WhK-ep-hds" secondAttribute="top" constant="4" id="UO5-aD-BHg"/>
+                                                <constraint firstAttribute="trailing" secondItem="yL8-sU-W7e" secondAttribute="trailing" constant="8" id="et8-iG-EjA"/>
+                                                <constraint firstAttribute="bottom" secondItem="yL8-sU-W7e" secondAttribute="bottom" constant="4" id="jeI-CU-gCz"/>
+                                                <constraint firstItem="yL8-sU-W7e" firstAttribute="leading" secondItem="WhK-ep-hds" secondAttribute="leading" constant="16" id="pL1-Pz-VUU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addressLabel" destination="Cmr-RB-KSl" id="p5q-js-2Ve"/>
                                             <outlet property="dateLabel" destination="RTd-a1-JGw" id="ds4-Wr-NjP"/>
-                                            <outlet property="locationLabel" destination="ppr-gO-qC7" id="tYL-e4-AQS"/>
+                                            <outlet property="titleLabel" destination="ppr-gO-qC7" id="tYL-e4-AQS"/>
                                             <segue destination="jXo-To-p8D" kind="show" id="NBb-lH-T9c"/>
                                         </connections>
                                     </tableViewCell>
@@ -109,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qY8-Ii-f1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="125"/>
+            <point key="canvasLocation" x="1712.8" y="124.58770614692655"/>
         </scene>
         <!--Item Images View Controller-->
         <scene sceneID="my8-z9-SKO">
