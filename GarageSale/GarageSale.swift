@@ -11,6 +11,7 @@ import CoreData
 
 public struct GarageSale {
     var address: String?
+    var title: String?
     var date: Date?
     var timeStart: Date?
     var timeEnd: Date?
@@ -39,7 +40,8 @@ public struct GarageSale {
     }
     
     private func setAttributes(on sale: SaleModel) -> Bool {
-        guard let newAddress = address, let newTimeEnd = timeEnd, let newTimeStart = timeStart, let newDate = date,
+        guard let newAddress = address, let newTimeEnd = timeEnd, let newTimeStart = timeStart,
+            let newDate = date, let newTitle = title,
             let newLatitude = latitude, let newLongitude = longitude else { return false }
         sale.address = newAddress
         sale.timeStart = newTimeStart
@@ -48,6 +50,7 @@ public struct GarageSale {
         sale.datePosted = Date()
         sale.latitude = newLatitude
         sale.longitude = newLongitude
+        sale.title = newTitle
         return true
     }
 }

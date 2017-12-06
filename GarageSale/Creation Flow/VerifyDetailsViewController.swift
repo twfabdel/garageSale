@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var newSale: GarageSale?
     var items: [SaleItem]?
@@ -32,11 +32,6 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
         dateLabel.text = newSale?.date?.dateString
         timeLabel.text = newSale?.timeStart?.timeString
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - CollectionView DataSource
     
@@ -54,7 +49,38 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
     }
     
 
+    var checkedAction: UIAlertAction?
     @IBAction func done(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: nil, message: "What would you like your garage sale to be called?", preferredStyle: .alert)
+        weak var weakSelf = self
+        alert.addTextField(configurationHandler: {
+            $0.placeholder = "Garage Sale Name"
+            $0.addTarget(weakSelf!, action: #selector(weakSelf!.textFieldChanged(_:)), for: .editingChanged)
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let create = UIAlertAction(title: "Create", style: .default) { action in
+            if let title = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespaces) {
+                weakSelf?.createSale(with: title)
+            }
+        }
+        checkedAction = create
+        checkedAction?.isEnabled = false
+        alert.addAction(cancel)
+        alert.addAction(create)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func textFieldChanged(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if text.trimmingCharacters(in: .whitespaces).isEmpty {
+            checkedAction?.isEnabled = false
+        } else {
+            checkedAction?.isEnabled = true
+        }
+    }
+    
+    private func createSale(with title: String) {
+        newSale?.title = title
         newSale?.datePosted = Date()
         newSale?.items = items
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

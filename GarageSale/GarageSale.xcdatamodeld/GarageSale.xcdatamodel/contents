@@ -14,10 +14,11 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeEnd" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timeStart" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemModel" inverseName="sale" inverseEntity="ItemModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="ItemModel" positionX="-54" positionY="45" width="128" height="105"/>
-        <element name="SaleModel" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="SaleModel" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>
