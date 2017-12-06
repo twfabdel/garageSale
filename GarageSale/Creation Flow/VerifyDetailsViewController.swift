@@ -30,7 +30,7 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
 
         addressLabel.text = newSale?.address
         dateLabel.text = newSale?.date?.dateString
-        timeLabel.text = newSale?.timeStart?.timeString
+        timeLabel.text = timeRangeString(newSale?.timeStart, to: newSale?.timeEnd)
     }
     
     // MARK: - CollectionView DataSource

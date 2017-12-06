@@ -9,6 +9,17 @@
 import CoreLocation
 import UIKit
 
+public func timeRangeString(_ start: Date?, to end: Date?) -> String {
+    var result = ""
+    if let start = start {
+        result += start.timeString
+        if let end = end {
+            result += (" - " + end.timeString)
+        }
+    }
+    return result
+}
+
 public extension Float {
     var priceString: String {
         return String(format: "$%.02f", self)

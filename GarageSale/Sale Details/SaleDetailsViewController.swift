@@ -27,7 +27,7 @@ class SaleDetailsViewController: UIViewController {
         
         addressLabel.text = sale?.address
         dateLabel.text = sale?.date?.dateString
-        timeLabel.text = (sale?.timeStart?.timeString ?? "") + " - " + (sale?.timeEnd?.timeString ?? "")
+        timeLabel.text = timeRangeString(sale?.timeStart, to: sale?.timeEnd)
         
         setMapLocation()
         setImagePreview()
