@@ -45,8 +45,8 @@ class ItemImagesViewController: UIViewController, UICollectionViewDelegate, UICo
             let item = saleItems?[indexPath.row] as? ItemModel,
             let itemImageData = item.image
         {
-            detailCell.itemPriceLabel.text = item.price.priceString
-            //detailCell.itemImageView.image = UIImage(data: itemImageData)
+            detailCell.setItemPrice(to: item.price)
+            detailCell.itemCountLabel.text = "\(indexPath.item + 1) of \(saleItems!.count)"
             detailCell.setImageView(with: itemImageData)
         }
         

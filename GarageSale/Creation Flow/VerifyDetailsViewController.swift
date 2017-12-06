@@ -43,7 +43,10 @@ class VerifyDetailsViewController: UIViewController, UICollectionViewDelegate, U
         let cell = itemsCollectionView.dequeueReusableCell(withReuseIdentifier: "VerifyItemCell", for: indexPath)
         if let itemCell = cell as? VerifyDetailsCollectionViewCell, let item = items?[indexPath.row] {
             itemCell.itemImageView.image = item.image
-            itemCell.priceLabel.text = item.price?.priceString
+            itemCell.setPriceLabel(to: item.price)
+//            itemCell.priceLabel.text = item.price?.priceString
+//            itemCell.priceLabel.layer.cornerRadius = GlobalConstants.labelCornerRadius
+//            itemCell.priceLabel.backgroundColor = GlobalConstants.labelBackgroundColor
         }
         return cell
     }

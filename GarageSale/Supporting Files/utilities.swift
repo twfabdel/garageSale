@@ -9,6 +9,26 @@
 import CoreLocation
 import UIKit
 
+public struct GlobalConstants {
+    static let labelCornerRadius: CGFloat = 5.0
+    static let labelBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8)
+}
+
+class PaddedLabel: UILabel {
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        get {
+            var contentSize = super.intrinsicContentSize
+            contentSize.height += 5 + 5
+            contentSize.width += 5 + 5
+            return contentSize
+        }
+    }
+}
+
 public func timeRangeString(_ start: Date?, to end: Date?) -> String {
     var result = ""
     if let start = start {
