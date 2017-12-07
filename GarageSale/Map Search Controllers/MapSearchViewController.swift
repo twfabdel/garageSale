@@ -62,6 +62,11 @@ class MapSearchViewController: UIViewController, CLLocationManagerDelegate, UISe
             searchBar.sizeToFit()
             searchBar.placeholder = searchBarPlaceholder
             
+            if let textField = searchBar.value(forKey: "_searchField") as? UITextField {
+                textField.backgroundColor = GlobalConstants.darkPrimaryColor
+                textField.textColor = GlobalConstants.barTextColor
+            }
+            
             navigationItem.titleView = resultSearchController?.searchBar
             resultSearchController.hidesNavigationBarDuringPresentation = false
             resultSearchController.dimsBackgroundDuringPresentation = true

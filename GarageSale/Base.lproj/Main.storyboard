@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="1788" y="1657"/>
         </scene>
-        <!--Sale List View Controller-->
+        <!--Sales-->
         <scene sceneID="Ofg-VP-E5y">
             <objects>
                 <viewController id="DRl-i0-GY5" customClass="SaleListViewController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,24 +66,24 @@
                                                     <rect key="frame" x="16" y="4" width="351" height="75.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLX-Xg-ZJU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="33.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-gO-qC7">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="208.5" height="36"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="203" height="33.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                    <color key="textColor" red="0.18431372549019609" green="0.19936682644648104" blue="0.54752934644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-a1-JGw">
-                                                                    <rect key="frame" x="216.5" y="0.0" width="134.5" height="36"/>
+                                                                    <rect key="frame" x="211" y="0.0" width="140" height="33.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.18431372549019609" green="0.19936682644648104" blue="0.54752934644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmr-RB-KSl">
-                                                            <rect key="frame" x="0.0" y="44" width="351" height="31.5"/>
+                                                            <rect key="frame" x="0.0" y="41.5" width="351" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -117,7 +117,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Avq-t7-ZXS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YKG-jo-KOL"/>
+                    <navigationItem key="navigationItem" title="Sales" id="YKG-jo-KOL"/>
                     <connections>
                         <outlet property="saleTableView" destination="E40-bq-s0n" id="XIT-Ko-4Jh"/>
                     </connections>
@@ -578,7 +578,7 @@
         <!--List-->
         <scene sceneID="vw0-My-hYu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c7Q-jR-7hG" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c7Q-jR-7hG" customClass="CustomNavigationController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" id="IHO-zn-hsS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F7A-IV-GOg">
@@ -597,7 +597,7 @@
         <!--Map-->
         <scene sceneID="Wgn-fX-2ra">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2YN-bj-RoF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2YN-bj-RoF" customClass="CustomNavigationController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="bHb-hB-Q7g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OzO-OX-ZM6">
@@ -616,7 +616,7 @@
         <!--New Sale-->
         <scene sceneID="ICV-dU-CeL">
             <objects>
-                <navigationController storyboardIdentifier="NewGarageSaleFlow" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SdG-28-bBo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewGarageSaleFlow" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SdG-28-bBo" customClass="CustomNavigationController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="New Sale" id="jgp-c9-mD2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G9V-6I-bAC">

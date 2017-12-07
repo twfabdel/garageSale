@@ -61,6 +61,9 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
             saleCell.titleLabel.text = garageSale.title
             saleCell.dateLabel.text = garageSale.date?.shortDateString
             saleCell.addressLabel.text = garageSale.address
+            
+            saleCell.dateLabel.textColor = GlobalConstants.darkPrimaryColor
+            saleCell.titleLabel.textColor = GlobalConstants.darkPrimaryColor
             saleCell.sale = garageSale
         }
     

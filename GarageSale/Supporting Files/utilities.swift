@@ -14,11 +14,24 @@ public struct GlobalConstants {
     static let labelBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8)
     static let labelYInset: CGFloat = 5.0
     static let labelXInset: CGFloat = 8.0
+    
+    static let primaryColor = #colorLiteral(red: 0.6513273403, green: 0.366730796, blue: 0.7063275263, alpha: 1)
+    static let darkPrimaryColor = #colorLiteral(red: 0.3615243779, green: 0.2035568211, blue: 0.392052665, alpha: 1)
+    static let secondaryColor = #colorLiteral(red: 1, green: 0.8, blue: 0, alpha: 1)
+    static let barTextColor = UIColor.white
 }
 
 class PoppingTabBar: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         delegate = self
+        self.tabBar.barTintColor = GlobalConstants.primaryColor
+        self.tabBar.tintColor = GlobalConstants.secondaryColor
+        UITabBarItem.appearance().setTitleTextAttributes(
+            [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): GlobalConstants.barTextColor],
+            for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(
+            [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): GlobalConstants.secondaryColor],
+            for: .selected)
         super.viewDidLoad()
     }
     
@@ -26,6 +39,18 @@ class PoppingTabBar: UITabBarController, UITabBarControllerDelegate {
         if let navVC = viewController as? UINavigationController {
             navVC.popToRootViewController(animated: false)
         }
+    }
+}
+
+class CustomNavigationController: UINavigationController {
+    override func viewDidLoad() {
+        self.navigationBar.barTintColor = GlobalConstants.primaryColor
+        self.navigationBar.tintColor = GlobalConstants.barTextColor
+        self.navigationBar.titleTextAttributes = [
+            NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): GlobalConstants.barTextColor,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 28)
+        ]
+        super.viewDidLoad()
     }
 }
 
