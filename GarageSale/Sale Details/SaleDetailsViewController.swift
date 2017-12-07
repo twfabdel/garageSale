@@ -63,7 +63,6 @@ class SaleDetailsViewController: UIViewController {
             imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(tap)
         }
-        
         setItemCountLabel()
     }
     
