@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SaleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class SaleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     // MARK: - Core Data Loading
     
@@ -17,17 +17,13 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     var loadedGarageSales = [SaleModel]()
     var filteredGarageSales = [SaleModel]()
     
-    @IBOutlet weak var sortOptionCollectionView: UICollectionView! {
-        didSet {
-            sortOptionCollectionView.delegate = self
-            sortOptionCollectionView.dataSource = self
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareSearchBar()
         managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        
+        formatSegmentedControl(control: titleSortSegmentedControl)
+        formatSegmentedControl(control: imageSortSegmentedControl)
         loadData()
     }
     
@@ -83,29 +79,48 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         searchBar.endEditing(true)
     }
     
+    @IBOutlet weak var imageSortSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var titleSortSegmentedControl: UISegmentedControl!
+    
+    private func formatSegmentedControl(control: UISegmentedControl) {
+        control.layer.borderColor = GlobalConstants.primaryColor.cgColor
+        control.layer.cornerRadius = 0.0
+        control.layer.backgroundColor = GlobalConstants.primaryColor.cgColor
+        control.tintColor = GlobalConstants.barTextColor
+        control.removeBorders()
+    }
+    
+    @IBAction func segmentSelected(_ sender: UISegmentedControl) {
+        var other: UISegmentedControl = titleSortSegmentedControl
+        if sender == other {
+            other = imageSortSegmentedControl
+        }
+        other.selectedSegmentIndex = sender.selectedSegmentIndex
+    }
+    
     // MARK: - Collection View Data Source
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SortIcons.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortOptionCell", for: indexPath)
-        if let optionCell = cell as? SaleOptionCollectionViewCell {
-            let iconEnum = SortIcons(rawValue: indexPath.item)
-            optionCell.iconLabel.text = iconEnum?.getString()
-            optionCell.iconImageView.image = iconEnum?.getImage()
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        filteredGarageSales = filteredGarageSales.sorted(by: { first, second in
-            guard let date1 = first.date, let date2 = second.date else { return false }
-            return date1.compare(date2) == ComparisonResult.orderedAscending
-        })
-        saleTableView.reloadData()
-    }
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return SortIcons.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortOptionCell", for: indexPath)
+//        if let optionCell = cell as? SaleOptionCollectionViewCell {
+//            let iconEnum = SortIcons(rawValue: indexPath.item)
+//            optionCell.iconLabel.text = iconEnum?.getString()
+//            optionCell.iconImageView.image = iconEnum?.getImage()
+//        }
+//        return cell
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        filteredGarageSales = filteredGarageSales.sorted(by: { first, second in
+//            guard let date1 = first.date, let date2 = second.date else { return false }
+//            return date1.compare(date2) == ComparisonResult.orderedAscending
+//        })
+//        saleTableView.reloadData()
+//    }
     
     
     // MARK: - Table View Data
