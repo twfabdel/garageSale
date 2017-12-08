@@ -21,9 +21,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         prepareSearchBar()
         managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-        
-        formatSegmentedControl(control: titleSortSegmentedControl)
-        formatSegmentedControl(control: imageSortSegmentedControl)
+
+        formatButtons()
         loadData()
     }
     
@@ -79,24 +78,53 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         searchBar.endEditing(true)
     }
     
-    @IBOutlet weak var imageSortSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var titleSortSegmentedControl: UISegmentedControl!
+    @IBOutlet var imageButtons: [UIButton]!
+    @IBOutlet var titleButtons: [UIButton]!
     
-    private func formatSegmentedControl(control: UISegmentedControl) {
-        control.layer.borderColor = GlobalConstants.primaryColor.cgColor
-        control.layer.cornerRadius = 0.0
-        control.layer.backgroundColor = GlobalConstants.primaryColor.cgColor
-        control.tintColor = GlobalConstants.barTextColor
-        control.removeBorders()
-    }
-    
-    @IBAction func segmentSelected(_ sender: UISegmentedControl) {
-        var other: UISegmentedControl = titleSortSegmentedControl
-        if sender == other {
-            other = imageSortSegmentedControl
+    private func formatButtons() {
+        imageButtons.forEach{
+            $0.tintColor = .black
         }
-        other.selectedSegmentIndex = sender.selectedSegmentIndex
+        titleButtons.forEach{
+            $0.setTitleColor(GlobalConstants.primaryColor, for: .disabled)
+            $0.setTitleColor(.black, for: .normal)
+        }
     }
+
+    @IBAction func sortButtonTapped(_ sender: UIButton) {
+        if let titleIndex = titleButtons.index(of: sender) {
+            sortButtonTapped(imageButtons[titleIndex])
+            return
+        }
+        guard let index = imageButtons.index(of: sender) else { return }
+        
+        for i in 0..<imageButtons.count {
+            if i == index {
+                imageButtons[i].tintColor = GlobalConstants.primaryColor
+                imageButtons[i].isUserInteractionEnabled = false
+                titleButtons[i].isEnabled = false
+            } else {
+                imageButtons[i].tintColor = .black
+                imageButtons[i].isUserInteractionEnabled = true
+                titleButtons[i].isEnabled = true
+            }
+        }
+        
+        switch index {
+        case 0:
+            print("Soonest")
+        case 1:
+            print("Newest")
+        case 2:
+            print("Closest")
+        case 3:
+            print("Cheapest")
+        default:
+            break
+        }
+    }
+    
+    
     
     // MARK: - Collection View Data Source
     

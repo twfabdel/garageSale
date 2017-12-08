@@ -122,58 +122,119 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-pQ-Y5a">
-                                <rect key="frame" x="0.0" y="64" width="375" height="73"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="f0h-7m-iJc">
+                                <rect key="frame" x="0.0" y="72" width="375" height="63"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-Z9-ggH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="hIZ-vs-Zuh"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="" image="date_icon"/>
-                                            <segment title="" image="recently_added_icon"/>
-                                            <segment title="" image="distance_icon"/>
-                                            <segment title="" image="price_icon"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="segmentSelected:" destination="DRl-i0-GY5" eventType="valueChanged" id="eFe-im-Bon"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9nE-lE-PvQ">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="29"/>
-                                        <segments>
-                                            <segment title="Soonest"/>
-                                            <segment title="Newest"/>
-                                            <segment title="Nearest"/>
-                                            <segment title="Cheapest"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="segmentSelected:" destination="DRl-i0-GY5" eventType="valueChanged" id="50j-sU-Ol3"/>
-                                        </connections>
-                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ECH-2p-zEb">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="63"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ1-QH-Iht">
+                                                <rect key="frame" x="30.5" y="0.0" width="33" height="33"/>
+                                                <state key="normal" image="date_icon"/>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="5p8-a1-beU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0N-90-yrl">
+                                                <rect key="frame" x="18.5" y="33" width="57" height="30"/>
+                                                <state key="normal" title="Soonest">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="cxQ-me-oOS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rMs-F4-oWu">
+                                        <rect key="frame" x="94" y="0.0" width="93.5" height="63"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6J-sP-eXa">
+                                                <rect key="frame" x="30" y="0.0" width="33" height="33"/>
+                                                <state key="normal" image="recently_added_icon"/>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="lRu-7y-99m"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUq-Ht-Uit">
+                                                <rect key="frame" x="20.5" y="33" width="52" height="30"/>
+                                                <state key="normal" title="Newest">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="kHK-Wh-AYu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-RX-dc6">
+                                        <rect key="frame" x="187.5" y="0.0" width="94" height="63"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsb-t4-1kO">
+                                                <rect key="frame" x="30.5" y="0.0" width="33" height="33"/>
+                                                <state key="normal" image="distance_icon"/>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="clp-wL-1VT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7r-Jz-8Ls">
+                                                <rect key="frame" x="21" y="33" width="52" height="30"/>
+                                                <state key="normal" title="Closest">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="b65-Kq-cjw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Y4-M0-RLC">
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="63"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObT-8f-BkO">
+                                                <rect key="frame" x="30" y="0.0" width="33" height="33"/>
+                                                <state key="normal" image="price_icon"/>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="1J6-4Y-WLm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="css-0N-baq">
+                                                <rect key="frame" x="13.5" y="33" width="66" height="30"/>
+                                                <state key="normal" title="Cheapest">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="DRl-i0-GY5" eventType="touchUpInside" id="Iyp-c7-KR8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Avq-t7-ZXS" firstAttribute="trailing" secondItem="f0h-7m-iJc" secondAttribute="trailing" id="1Ew-SW-egg"/>
                             <constraint firstItem="Avq-t7-ZXS" firstAttribute="trailing" secondItem="E40-bq-s0n" secondAttribute="trailing" id="3Xs-oy-n3R"/>
-                            <constraint firstItem="Puf-pQ-Y5a" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" id="8Sn-0N-i8I"/>
-                            <constraint firstItem="E40-bq-s0n" firstAttribute="top" secondItem="Puf-pQ-Y5a" secondAttribute="bottom" id="JHh-g7-gvM"/>
-                            <constraint firstItem="Puf-pQ-Y5a" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" id="Kzv-Hb-d0x"/>
                             <constraint firstItem="E40-bq-s0n" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" id="LpD-hk-8c6"/>
                             <constraint firstItem="Avq-t7-ZXS" firstAttribute="bottom" secondItem="E40-bq-s0n" secondAttribute="bottom" id="OcM-kJ-ohn"/>
-                            <constraint firstItem="Avq-t7-ZXS" firstAttribute="trailing" secondItem="Puf-pQ-Y5a" secondAttribute="trailing" id="RBk-qA-hqP"/>
-                            <constraint firstItem="Puf-pQ-Y5a" firstAttribute="trailing" secondItem="Avq-t7-ZXS" secondAttribute="trailing" id="yNI-aW-wXe"/>
-                            <constraint firstItem="Puf-pQ-Y5a" firstAttribute="top" secondItem="Avq-t7-ZXS" secondAttribute="top" id="yTw-dX-qgc"/>
+                            <constraint firstItem="f0h-7m-iJc" firstAttribute="top" secondItem="Avq-t7-ZXS" secondAttribute="top" constant="8" id="ZcM-xb-iAN"/>
+                            <constraint firstItem="f0h-7m-iJc" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" id="gth-Io-HEe"/>
+                            <constraint firstItem="E40-bq-s0n" firstAttribute="top" secondItem="f0h-7m-iJc" secondAttribute="bottom" constant="2" id="hDN-d3-wYL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Avq-t7-ZXS"/>
                     </view>
                     <navigationItem key="navigationItem" id="YKG-jo-KOL"/>
                     <connections>
-                        <outlet property="imageSortSegmentedControl" destination="FE1-Z9-ggH" id="t1K-MU-wOb"/>
                         <outlet property="saleTableView" destination="E40-bq-s0n" id="XIT-Ko-4Jh"/>
-                        <outlet property="titleSortSegmentedControl" destination="9nE-lE-PvQ" id="Ra6-qq-UmZ"/>
+                        <outletCollection property="imageButtons" destination="UQ1-QH-Iht" collectionClass="NSMutableArray" id="WK3-by-qq4"/>
+                        <outletCollection property="imageButtons" destination="B6J-sP-eXa" collectionClass="NSMutableArray" id="Dd1-9w-Xsj"/>
+                        <outletCollection property="imageButtons" destination="Jsb-t4-1kO" collectionClass="NSMutableArray" id="iPN-ld-Cjr"/>
+                        <outletCollection property="imageButtons" destination="ObT-8f-BkO" collectionClass="NSMutableArray" id="bQu-hH-bc0"/>
+                        <outletCollection property="titleButtons" destination="V0N-90-yrl" collectionClass="NSMutableArray" id="EpS-a2-bMD"/>
+                        <outletCollection property="titleButtons" destination="GUq-Ht-Uit" collectionClass="NSMutableArray" id="9cg-sS-JjC"/>
+                        <outletCollection property="titleButtons" destination="n7r-Jz-8Ls" collectionClass="NSMutableArray" id="L7A-j9-YLS"/>
+                        <outletCollection property="titleButtons" destination="css-0N-baq" collectionClass="NSMutableArray" id="d1P-uL-5Dh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qY8-Ii-f1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
