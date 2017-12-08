@@ -52,8 +52,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E40-bq-s0n">
-                                <rect key="frame" x="0.0" y="162" width="375" height="456"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E40-bq-s0n">
+                                <rect key="frame" x="0.0" y="294" width="375" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SaleCell" rowHeight="84" id="bDu-Wx-vyM" customClass="SaleListTableViewCell" customModule="GarageSale" customModuleProvider="target">
@@ -143,13 +143,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6qB-Ok-7XL">
-                                                    <rect key="frame" x="8" y="0.0" width="66" height="66"/>
+                                                    <rect key="frame" x="8" y="0.0" width="58" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="6qB-Ok-7XL" secondAttribute="height" multiplier="1:1" id="ODB-FX-Mjw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bfG-14-rdW">
-                                                    <rect key="frame" x="20" y="74" width="42" height="20.5"/>
+                                                    <rect key="frame" x="16" y="66" width="42" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9o-ZD-jiL">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -175,14 +175,41 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-pQ-Y5a">
+                                <rect key="frame" x="0.0" y="163" width="375" height="73"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-Z9-ggH">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="hIZ-vs-Zuh"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="" image="date_icon"/>
+                                            <segment title="" image="recently_added_icon"/>
+                                            <segment title="" image="distance_icon"/>
+                                            <segment title="" image="price_icon"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9nE-lE-PvQ">
+                                        <rect key="frame" x="0.0" y="45" width="375" height="29"/>
+                                        <segments>
+                                            <segment title="Soonest"/>
+                                            <segment title="Newest"/>
+                                            <segment title="Nearest"/>
+                                            <segment title="Cheapest"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E40-bq-s0n" firstAttribute="top" secondItem="JgK-Jn-dbW" secondAttribute="bottom" constant="4" id="0hx-vB-j3s"/>
                             <constraint firstItem="Avq-t7-ZXS" firstAttribute="trailing" secondItem="E40-bq-s0n" secondAttribute="trailing" id="3Xs-oy-n3R"/>
                             <constraint firstItem="Avq-t7-ZXS" firstAttribute="trailing" secondItem="JgK-Jn-dbW" secondAttribute="trailing" constant="8" id="KaZ-nC-0eA"/>
+                            <constraint firstItem="Puf-pQ-Y5a" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" id="Kzv-Hb-d0x"/>
                             <constraint firstItem="E40-bq-s0n" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" id="LpD-hk-8c6"/>
                             <constraint firstItem="Avq-t7-ZXS" firstAttribute="bottom" secondItem="E40-bq-s0n" secondAttribute="bottom" id="OcM-kJ-ohn"/>
+                            <constraint firstItem="Avq-t7-ZXS" firstAttribute="trailing" secondItem="Puf-pQ-Y5a" secondAttribute="trailing" id="RBk-qA-hqP"/>
                             <constraint firstItem="JgK-Jn-dbW" firstAttribute="top" secondItem="Avq-t7-ZXS" secondAttribute="top" constant="4" id="r8f-HO-1yP"/>
                             <constraint firstItem="JgK-Jn-dbW" firstAttribute="leading" secondItem="Avq-t7-ZXS" secondAttribute="leading" constant="8" id="rDS-MM-k5z"/>
                         </constraints>
@@ -832,8 +859,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="date_icon" width="33" height="33"/>
+        <image name="distance_icon" width="33" height="33"/>
         <image name="map_icon" width="33" height="33"/>
         <image name="plus_icon" width="33" height="33"/>
+        <image name="price_icon" width="33" height="33"/>
+        <image name="recently_added_icon" width="33" height="33"/>
         <image name="sale_sign_icon" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
