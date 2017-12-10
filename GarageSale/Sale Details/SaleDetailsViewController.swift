@@ -40,10 +40,17 @@ class SaleDetailsViewController: UIViewController {
     
     // MARK: - Sharing with UIActivityViewController
     
+    func calendarAddCompletion(message: String) {
+    //var calendarCompletionHandler: (String)->Void = { message in
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func share(_ sender: UIBarButtonItem) {
         guard let sale = sale else { return }
         let text = "Check out this garage sale!\n" + saleToString(sale: sale)
-        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: [AddToCalendarActivity(with: sale)])
+        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: [AddToCalendarActivity(with: sale, completion: calendarAddCompletion)])
         activityVC.popoverPresentationController?.sourceView = view
         activityVC.excludedActivityTypes = [.copyToPasteboard]
         

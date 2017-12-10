@@ -172,19 +172,19 @@ public extension Date {
     }
     
     func getDate(withTime time: Date?) -> Date? {
-//        guard let
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "EEEE, MMM d, yyyy, h:mm a"
-//        return formatter.date(from: self.dateString + ", " + time.timeString)
         guard let time = time else { return nil }
-        let calendar = Calendar.current
-        var resultComponents = DateComponents()
-        resultComponents.year = calendar.component(.year, from: self)
-        resultComponents.month = calendar.component(.month, from: self)
-        resultComponents.day = calendar.component(.day, from: self)
-        resultComponents.hour = calendar.component(.hour, from: time)
-        resultComponents.minute = calendar.component(.minute, from: time)
-        return calendar.date(from: resultComponents)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, yyyy, h:mm a"
+        return formatter.date(from: self.dateString + ", " + time.timeString)
+//        guard let time = time else { return nil }
+//        let calendar = Calendar.current
+//        var resultComponents = DateComponents()
+//        resultComponents.year = calendar.component(.year, from: self)
+//        resultComponents.month = calendar.component(.month, from: self)
+//        resultComponents.day = calendar.component(.day, from: self)
+//        resultComponents.hour = calendar.component(.hour, from: time)
+//        resultComponents.minute = calendar.component(.minute, from: time)
+//        return calendar.date(from: resultComponents)
     }
 }
 

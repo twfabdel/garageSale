@@ -15,8 +15,10 @@ import UIKit
 class AddToCalendarActivity: UIActivity {
     
     var sale: SaleModel!
-    init(with sale: SaleModel) {
+    var completionHandler: ((String)->Void)?
+    init(with sale: SaleModel, completion: ((String)->Void)?) {
         self.sale = sale
+        self.completionHandler = completion
     }
     
     override var activityTitle: String? {
@@ -38,29 +40,31 @@ class AddToCalendarActivity: UIActivity {
     
     override func perform() {
         let eventStore = EKEventStore()
-        eventStore.requestAccess(to: .event) { (granted, err) in
-            if !granted || err == nil {
-                print("Error saving event")
+        weak var weakSelf = self
+        eventStore.requestAccess(to: .event) { (granted, error) in
+            var message = ""
+            if !granted{
+                message = "Permission not granted to access calendar"
+            } else if let err = error {
+                message = "Error creating event: \(err.localizedDescription)"
+            } else {
+                let event = EKEvent(eventStore: eventStore)
+                event.location = self.sale.address
+                if let start = self.sale.date?.getDate(withTime: self.sale.timeStart),
+                    let end = self.sale.date?.getDate(withTime: self.sale.timeEnd) {
+                    event.startDate = start
+                    event.endDate = end
+                    event.title = self.sale.title
+                    event.calendar = eventStore.defaultCalendarForNewEvents
+                    
+                    
+                    try? eventStore.save(event, span: .thisEvent)
+                    message = "Added garage sale to your calendar!"
+                } else {
+                    message = "Error parsing garage sale"
+                }
             }
-            let event = EKEvent(eventStore: eventStore)
-            event.location = self.sale.address
-            guard let start = self.sale.date?.getDate(withTime: self.sale.timeStart),
-                let end = self.sale.date?.getDate(withTime: self.sale.timeEnd)
-                else {
-                    print("Error formatting start and end times")
-                    return;
-            }
-            event.startDate = start
-            event.endDate = end
-            event.title = self.sale.title
-            event.calendar = eventStore.defaultCalendarForNewEvents
-            
-            do {
-                try eventStore.save(event, span: .thisEvent)
-                print("Added to calendar")
-            } catch {
-                print("Error saving event")
-            }
+            weakSelf?.completionHandler?(message)
         }
         activityDidFinish(true)
     }
