@@ -125,6 +125,21 @@ public func timeRangeString(_ start: Date?, to end: Date?) -> String {
     return result
 }
 
+public func saleToString(sale: SaleModel) -> String {
+    var result = ""
+    if let title = sale.title {
+        result += "\(title) "
+    }
+    if let address = sale.address {
+        result += "at \(address) "
+    }
+    if let date = sale.date {
+        result += "on \(date.dateString) "
+    }
+    result += timeRangeString(sale.timeStart, to: sale.timeEnd)
+    return result
+}
+
 public extension Float {
     var priceString: String {
         return String(format: "$%.02f", self)

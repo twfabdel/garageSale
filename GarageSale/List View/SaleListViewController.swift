@@ -78,6 +78,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         searchBar.endEditing(true)
     }
     
+    // MARK: - Sort Buttons
+    
     @IBOutlet var imageButtons: [UIButton]!
     @IBOutlet var titleButtons: [UIButton]!
     
@@ -113,8 +115,18 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         switch index {
         case 0:
             print("Soonest")
+            filteredGarageSales = filteredGarageSales.sorted(by: { (one, two) -> Bool in
+                guard let date1 = one.date, let date2 = two.date
+                    else { return false }
+                return date1.compare(date2) == .orderedAscending
+            })
         case 1:
             print("Newest")
+            filteredGarageSales = filteredGarageSales.sorted(by: { (one, two) -> Bool in
+                guard let date1 = one.datePosted, let date2 = two.datePosted
+                    else { return false }
+                return date1.compare(date2) == .orderedAscending
+            })
         case 2:
             print("Closest")
         case 3:
@@ -122,34 +134,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         default:
             break
         }
+        saleTableView.reloadData()
     }
-    
-    
-    
-    // MARK: - Collection View Data Source
-    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return SortIcons.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortOptionCell", for: indexPath)
-//        if let optionCell = cell as? SaleOptionCollectionViewCell {
-//            let iconEnum = SortIcons(rawValue: indexPath.item)
-//            optionCell.iconLabel.text = iconEnum?.getString()
-//            optionCell.iconImageView.image = iconEnum?.getImage()
-//        }
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        filteredGarageSales = filteredGarageSales.sorted(by: { first, second in
-//            guard let date1 = first.date, let date2 = second.date else { return false }
-//            return date1.compare(date2) == ComparisonResult.orderedAscending
-//        })
-//        saleTableView.reloadData()
-//    }
-    
     
     // MARK: - Table View Data
     

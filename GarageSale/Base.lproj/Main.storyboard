@@ -860,6 +860,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9hB-AM-DT1"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BUe-36-VlX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="jQI-nw-tlg">
+                            <connections>
+                                <action selector="share:" destination="jXo-To-p8D" id="ggA-HX-f1E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="zyp-iu-Kav" id="bZh-IF-DgF"/>
                         <outlet property="dateLabel" destination="2rn-Hw-IVH" id="6EU-Em-vkR"/>

@@ -35,6 +35,17 @@ class SaleDetailsViewController: UIViewController {
         mapView.isUserInteractionEnabled = false
     }
     
+    // MARK: - Sharing with UIActivityViewController
+    
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        guard let sale = sale else { return }
+        let text = "Check out this garage sale!\n" + saleToString(sale: sale)
+        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = view
+        activityVC.excludedActivityTypes = [.print]
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
     // MARK: - Map and location
     
     private func setMapLocation() {
