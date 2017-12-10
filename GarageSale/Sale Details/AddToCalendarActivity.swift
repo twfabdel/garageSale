@@ -23,7 +23,7 @@ class AddToCalendarActivity: UIActivity {
         return "Add To Calendar"
     }
     override var activityImage: UIImage? {
-        return #imageLiteral(resourceName: "date_icon")
+        return #imageLiteral(resourceName: "calendar_add")
     }
     override var activityType: UIActivityType? {
         guard let bundleId = Bundle.main.bundleIdentifier else {return nil}

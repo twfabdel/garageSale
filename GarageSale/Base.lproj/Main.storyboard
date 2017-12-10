@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -861,11 +862,18 @@
                         <viewLayoutGuide key="safeArea" id="9hB-AM-DT1"/>
                     </view>
                     <navigationItem key="navigationItem" id="BUe-36-VlX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="jQI-nw-tlg">
-                            <connections>
-                                <action selector="share:" destination="jXo-To-p8D" id="ggA-HX-f1E"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="jQI-nw-tlg">
+                                <connections>
+                                    <action selector="share:" destination="jXo-To-p8D" id="ggA-HX-f1E"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="navigate_icon" id="O90-mw-d6i">
+                                <connections>
+                                    <action selector="openInMaps:" destination="jXo-To-p8D" id="fCO-5B-l8Y"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="zyp-iu-Kav" id="bZh-IF-DgF"/>
@@ -885,6 +893,7 @@
         <image name="date_icon" width="33" height="33"/>
         <image name="distance_icon" width="33" height="33"/>
         <image name="map_icon" width="33" height="33"/>
+        <image name="navigate_icon" width="33" height="33"/>
         <image name="plus_icon" width="33" height="33"/>
         <image name="price_icon" width="33" height="33"/>
         <image name="recently_added_icon" width="33" height="33"/>
