@@ -49,5 +49,7 @@
 	<string>To upload images of items you want to sell</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To upload images of items you want to sell</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>To add garage sales to your calendar</string>
 </dict>
 </plist>

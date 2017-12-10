@@ -40,9 +40,10 @@ class SaleDetailsViewController: UIViewController {
     @IBAction func share(_ sender: UIBarButtonItem) {
         guard let sale = sale else { return }
         let text = "Check out this garage sale!\n" + saleToString(sale: sale)
-        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: [AddToCalendarActivity(with: sale)])
         activityVC.popoverPresentationController?.sourceView = view
         activityVC.excludedActivityTypes = [.print]
+        
         self.present(activityVC, animated: true, completion: nil)
     }
     
