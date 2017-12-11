@@ -125,7 +125,7 @@ class SaleDetailsViewController: UIViewController {
     private func setItemCountLabel() {
         guard let count = sale?.items?.count else { return }
         var labelText = "\(count) Featured Item"
-        if count > 1 {
+        if count != 1 {
             labelText += "s"
         }
         itemCountLabel.text = labelText

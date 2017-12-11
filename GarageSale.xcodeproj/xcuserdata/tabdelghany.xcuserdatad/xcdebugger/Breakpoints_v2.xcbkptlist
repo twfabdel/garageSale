@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GarageSale/List View/SaleListViewController.swift"
-            timestampString = "534410371.899418"
+            timestampString = "534645839.708629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203">
+            startingLineNumber = "211"
+            endingLineNumber = "211">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -136,7 +136,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GarageSale/Map View/SaleMapViewController.swift"
-            timestampString = "534234856.274819"
+            timestampString = "534645111.752893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -152,7 +152,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GarageSale/Map View/SaleMapViewController.swift"
-            timestampString = "534234856.275322"
+            timestampString = "534645111.753242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -232,13 +232,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GarageSale/List View/SaleListViewController.swift"
-            timestampString = "534410371.900113"
+            timestampString = "534645839.709062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "sortButtonTapped(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

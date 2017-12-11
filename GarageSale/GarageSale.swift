@@ -40,9 +40,14 @@ public struct GarageSale {
     }
     
     private func setAttributes(on sale: SaleModel) -> Bool {
-        guard let newAddress = address, let newTimeEnd = timeEnd, let newTimeStart = timeStart,
-            let newDate = date, let newTitle = title,
-            let newLatitude = latitude, let newLongitude = longitude else { return false }
+        guard let newAddress = address,
+            let newDate = date,
+            let newTitle = title,
+            let newLatitude = latitude,
+            let newLongitude = longitude,
+            let newTimeStart = newDate.getDate(withTime: timeStart),
+            let newTimeEnd = newDate.getDate(withTime: timeEnd)
+            else { return false }
         sale.address = newAddress
         sale.timeStart = newTimeStart
         sale.timeEnd = newTimeEnd

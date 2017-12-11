@@ -19,6 +19,7 @@ class SaleListTableViewCell: UITableViewCell {
     var sale: SaleModel?
     
     func setImagePreview() {
+        imagePreview.image = nil
         if let imageData = (sale?.items?.allObjects.first as? ItemModel)?.image {
             let image = UIImage(data: imageData)
             imagePreview.contentMode = .scaleAspectFill

@@ -691,11 +691,11 @@
             </objects>
             <point key="canvasLocation" x="-29" y="900"/>
         </scene>
-        <!--List-->
+        <!--Sales-->
         <scene sceneID="vw0-My-hYu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c7Q-jR-7hG" customClass="CustomNavigationController" customModule="GarageSale" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="sale_sign_icon" id="IHO-zn-hsS"/>
+                    <tabBarItem key="tabBarItem" title="Sales" image="sale_sign_icon" id="IHO-zn-hsS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F7A-IV-GOg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

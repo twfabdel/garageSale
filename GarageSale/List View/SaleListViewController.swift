@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class SaleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -16,11 +17,15 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     var managedObjectContext: NSManagedObjectContext!
     var loadedGarageSales = [SaleModel]()
     var filteredGarageSales = [SaleModel]()
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareSearchBar()
         managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 
         formatButtons()
         loadData()
@@ -29,6 +34,7 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
+        sortButtonTapped(imageButtons[0])
     }
     
     private func loadData() {
@@ -92,6 +98,50 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
             $0.setTitleColor(.black, for: .normal)
         }
     }
+    
+    private func getSortFunction(for index: Int) -> ((SaleModel, SaleModel)->Bool)? {
+        switch index {
+        case 0:
+            return { (one, two) -> Bool in
+                guard let date1 = one.date, let date2 = two.date
+                    else { return false }
+                return date1.compare(date2) == .orderedAscending
+            }
+        case 1:
+            return { (one, two) -> Bool in
+                guard let date1 = one.datePosted, let date2 = two.datePosted
+                    else { return false }
+                return date1.compare(date2) == .orderedDescending
+            }
+        case 2:
+            return { (one, two) -> Bool in
+                guard let currentLocation = self.locationManager.location
+                    else { return false }
+                let loc1 = CLLocation(latitude: one.latitude, longitude: one.longitude)
+                let loc2 = CLLocation(latitude: two.latitude, longitude: two.longitude)
+                return loc1.distance(from: currentLocation) < loc2.distance(from: currentLocation)
+            }
+        case 3:
+            return { (one, two) -> Bool in
+                guard let items1 = one.items?.allObjects as? [ItemModel],
+                let items2 = two.items?.allObjects as? [ItemModel]
+                    else {  return false }
+                if items1.count == 0 { return false }
+                if items2.count == 0 { return true }
+                var sum1: Float = 0
+                for item in items1 {
+                    sum1 += item.price
+                }
+                var sum2: Float = 0
+                for item in items2 {
+                    sum2 += item.price
+                }
+                return sum1/(Float(items1.count)) < sum2/Float(items2.count)
+            }
+        default:
+            return nil
+        }
+    }
 
     @IBAction func sortButtonTapped(_ sender: UIButton) {
         if let titleIndex = titleButtons.index(of: sender) {
@@ -112,27 +162,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         
-        switch index {
-        case 0:
-            print("Soonest")
-            filteredGarageSales = filteredGarageSales.sorted(by: { (one, two) -> Bool in
-                guard let date1 = one.date, let date2 = two.date
-                    else { return false }
-                return date1.compare(date2) == .orderedAscending
-            })
-        case 1:
-            print("Newest")
-            filteredGarageSales = filteredGarageSales.sorted(by: { (one, two) -> Bool in
-                guard let date1 = one.datePosted, let date2 = two.datePosted
-                    else { return false }
-                return date1.compare(date2) == .orderedAscending
-            })
-        case 2:
-            print("Closest")
-        case 3:
-            print("Cheapest")
-        default:
-            break
+        if let sortFunction = getSortFunction(for: index) {
+            filteredGarageSales = filteredGarageSales.sorted(by: sortFunction)
         }
         saleTableView.reloadData()
     }

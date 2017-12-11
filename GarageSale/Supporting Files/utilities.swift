@@ -19,48 +19,6 @@ public struct GlobalConstants {
     static let darkPrimaryColor = #colorLiteral(red: 0.3615243779, green: 0.2035568211, blue: 0.392052665, alpha: 1)
     static let secondaryColor = #colorLiteral(red: 1, green: 0.8, blue: 0, alpha: 1)
     static let barTextColor = UIColor.white
-    
-    static let IconMap: [(string: String, image: UIImage)] = [
-        ("Soonest", #imageLiteral(resourceName: "date_icon")),
-        ("Newest", #imageLiteral(resourceName: "recently_added_icon")),
-        ("Nearest", #imageLiteral(resourceName: "distance_icon")),
-        ("Cheapest", #imageLiteral(resourceName: "price_icon"))
-    ]
-}
-
-public enum SortIcons: Int {
-    case Soonest;
-    case Newest;
-    case Nearest;
-    case Cheapest;
-    
-    static let count = 4
-    
-    func getImage() -> UIImage {
-        switch self {
-        case .Soonest:
-            return #imageLiteral(resourceName: "date_icon")
-        case .Newest:
-            return #imageLiteral(resourceName: "recently_added_icon")
-        case .Nearest:
-            return #imageLiteral(resourceName: "distance_icon")
-        case .Cheapest:
-            return #imageLiteral(resourceName: "price_icon")
-        }
-    }
-    
-    func getString() -> String {
-        switch self {
-        case .Soonest:
-            return "Soonest"
-        case .Newest:
-            return "Newest"
-        case .Nearest:
-            return "Nearest"
-        case .Cheapest:
-            return "Cheapest"
-        }
-    }
 }
 
 class PoppingTabBar: UITabBarController, UITabBarControllerDelegate {
@@ -176,15 +134,6 @@ public extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, MMM d, yyyy, h:mm a"
         return formatter.date(from: self.dateString + ", " + time.timeString)
-//        guard let time = time else { return nil }
-//        let calendar = Calendar.current
-//        var resultComponents = DateComponents()
-//        resultComponents.year = calendar.component(.year, from: self)
-//        resultComponents.month = calendar.component(.month, from: self)
-//        resultComponents.day = calendar.component(.day, from: self)
-//        resultComponents.hour = calendar.component(.hour, from: time)
-//        resultComponents.minute = calendar.component(.minute, from: time)
-//        return calendar.date(from: resultComponents)
     }
 }
 
