@@ -1,0 +1,75 @@
+user:tabdel (Abdelghany, Tarek)
+
+API's and their Uses:
+1. CoreData (NCIL)
+	- Model of Garage Sale and Garage Sale Item created for persistence
+	- OneToMany relationship used to associate a single sale with each item at that sale
+	- Garage Sale Item stores images of items as binary data
+
+2. MapKit + Core Location (NCIL)
+	- Used to display map of all garage sales based on the coordinates stored
+	- Coordinates found by requesting coordinates for address, or based on the mapview used when creating a sale
+	- Current location displayed on map showing nearby sales
+	- Ability to open Apple or Google Maps to navigate to a sale from it's details page
+	- Sorting sales based on proximity to current location by comparing sale coordinates with current location coordinates
+	- Ability to open garage sale location in Apple or Google maps for navigation
+
+3. SearchController (NCIL)
+	- Used to allow for searching of locations, displaying a table view containing results
+	- Used in initial view of app to filter through sales based on their titles
+
+4. View Controllers
+	- Tab bar for primary app with 3 sections: List, Creation, and Map
+	- Navigation controller to go from list or map to detail view, and along each point in creation flow
+	- Manual segue for navigation from Map annotation to detail
+	- Presentation for alerts and showing image items in detail view
+
+5. Table View
+	- List of garage sales and their locations, dates, and a thumbnail preview
+	- List of results when searching for location in map view
+
+6. Collection View
+	- Paged side-scrolling display of items presented from within detail view
+	- Show added items and allow editing of their prices within items' cells upon creation of sale
+	- Show added items on verification page
+
+7. Alerts
+	- Action Sheet to pick images from camera or photo library
+	- Action sheet to pick between Apple and Google maps
+	- Alert on failure to save to calendar
+	- Alert on forgetting to add price to new item
+	- Alert on creating sale, with text field to enter sale's name
+
+8. UIImagePicker + Camera
+	- Add images of items to be sold from either camera or photo library
+
+9. UIActivityViewController
+	- Share garage sale info
+	- Custom UIActivity to add garage sale to your calendar
+
+10. EventKit (NCIL)
+	- Add garage sales to calendar with title, start and end time, and location
+
+11. UIView Animation
+	- Animate transitioning back to list view to page-turn
+	- Required customization of tab bar controller to detect when programmatically switching to first tab
+
+12. Controls API
+	- Customized text field in alert for submitting new sale to have done button to resign first responder
+	- Button group to select sorting in list view, created segmented-control behavior with both image and text
+	- Padded label with rounded edges when displaying price
+
+13. UIGestureRecognizer
+	- Taps added to image preview in detail view to display items one at a time fullscreen
+	- Swipe down to dismiss images
+	- Taps added to map in detail to pull up action sheet for navigation
+
+14. Date 
+	- Posted Date, Day, Start Time, and End Time saved as fields of a garage sale
+	- Day and Start/End time combined in order to accurately compare sales in sorting
+	- DateFormatter used to convert dates to various formats depending on display in app
+
+15. UIDatePicker (NCIL)
+	- Date picker used to select day, start time, and end time in creating sale
+	- end time adjusted to always be later than start time
+	- day adjusted to always be at or after current date
