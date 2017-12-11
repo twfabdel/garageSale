@@ -109,15 +109,17 @@ class SaleDetailsViewController: UIViewController {
     // MARK: - Image Preview
     
     private func setImagePreview() {
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         if let imageData = (sale?.items?.allObjects.first as? ItemModel)?.image {
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
             let image = UIImage(data: imageData)
             imageView.image = image
             
             let tap = UITapGestureRecognizer(target: self, action: #selector(showItemImages(_:)))
             imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(tap)
+        } else {
+            imageView.image = #imageLiteral(resourceName: "default_image")
         }
         setItemCountLabel()
     }

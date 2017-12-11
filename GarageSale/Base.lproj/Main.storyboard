@@ -80,7 +80,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLX-Xg-ZJU">
                                                                     <rect key="frame" x="0.0" y="0.0" width="283.5" height="29"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-gO-qC7">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-gO-qC7">
                                                                             <rect key="frame" x="0.0" y="0.0" width="44.5" height="29"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                             <color key="textColor" red="0.18431372549019609" green="0.19936682644648104" blue="0.54752934644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

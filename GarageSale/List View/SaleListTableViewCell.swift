@@ -20,11 +20,13 @@ class SaleListTableViewCell: UITableViewCell {
     
     func setImagePreview() {
         imagePreview.image = nil
+        imagePreview.contentMode = .scaleAspectFill
+        imagePreview.clipsToBounds = true
         if let imageData = (sale?.items?.allObjects.first as? ItemModel)?.image {
             let image = UIImage(data: imageData)
-            imagePreview.contentMode = .scaleAspectFill
-            imagePreview.clipsToBounds = true
             imagePreview.image = image
+        } else {
+            imagePreview.image = #imageLiteral(resourceName: "default_image")
         }
         imageHeight.constant = addressLabel.frame.height + titleLabel.frame.height + 8
         imagePreview.layer.cornerRadius = imagePreview.frame.height/2.0
