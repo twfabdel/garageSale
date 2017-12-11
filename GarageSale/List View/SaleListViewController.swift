@@ -19,6 +19,8 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     var filteredGarageSales = [SaleModel]()
     var locationManager = CLLocationManager()
     
+    var sortedByIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareSearchBar()
@@ -34,7 +36,7 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
-        sortButtonTapped(imageButtons[0])
+        sortButtonTapped(imageButtons[sortedByIndex])
     }
     
     private func loadData() {
@@ -55,6 +57,10 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         searchBar.sizeToFit()
         searchBar.placeholder = "Filter Garage Sales"
         searchBar.delegate = self
+        if let textField = searchBar.value(forKey: "_searchField") as? UITextField {
+            textField.backgroundColor = GlobalConstants.darkPrimaryColor
+            textField.textColor = GlobalConstants.barTextColor
+        }
         navigationItem.titleView = searchBar
         
         let resignTap = UITapGestureRecognizer(target: self, action: #selector(tapDismissKeyboard(_:)))
@@ -150,6 +156,7 @@ class SaleListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         guard let index = imageButtons.index(of: sender) else { return }
         
+        sortedByIndex = index
         for i in 0..<imageButtons.count {
             if i == index {
                 imageButtons[i].tintColor = GlobalConstants.primaryColor
