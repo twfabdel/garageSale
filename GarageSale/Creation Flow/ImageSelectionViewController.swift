@@ -58,7 +58,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     
     // MARK: - Image Picker Delegate
     
-    @IBAction func addImage(_ sender: UIButton) {
+    @objc func addImage(_ sender: UIButton) {
         weak var weakSelf = self
         
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -96,13 +96,24 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
     // MARK: - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return items.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPictureCell", for: indexPath)
+            if let buttonCell = cell as? AddItemButtonCollectionViewCell {
+                buttonCell.addButton.addTarget(self, action: #selector(addImage(_:)), for: .touchDown)
+                buttonCell.addButton.imageView?.tintColor = GlobalConstants.primaryColor
+                buttonCell.label.textColor = GlobalConstants.primaryColor
+            }
+            return cell
+        }
+        
+        let itemIndex = indexPath.item - 1
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewItemCell", for: indexPath)
         if let itemCell = cell as? AddItemCollectionViewCell {
-            let item = items[indexPath.row]
+            let item = items[itemIndex]
             itemCell.itemImageView.contentMode = .scaleAspectFill
             itemCell.itemImageView.image = item.image
             
@@ -111,7 +122,7 @@ class ImageSelectionViewController: UIViewController, UIImagePickerControllerDel
                 if let priceString = itemCell.priceTextField.text, priceString != "" {
                     if let priceFloat = Float(priceString) {
                         itemCell.priceTextField.text = priceFloat.priceString
-                        weakSelf?.items[indexPath.row].price = priceFloat
+                        weakSelf?.items[itemIndex].price = priceFloat
                     } else {
                         itemCell.priceTextField.text = ""
                     }

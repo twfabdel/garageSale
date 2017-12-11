@@ -11,6 +11,7 @@
 		B8925BDE1FD66D840017EA3E /* GarageSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDD1FD66D840017EA3E /* GarageSale.swift */; };
 		B8925BE01FD9184C0017EA3E /* SaleOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8925BDF1FD9184C0017EA3E /* SaleOptionCollectionViewCell.swift */; };
 		B899AD6F1FDDDC9200C95CBC /* AddToCalendarActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899AD6E1FDDDC9200C95CBC /* AddToCalendarActivity.swift */; };
+		B899AD711FDE158A00C95CBC /* AddItemButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899AD701FDE158A00C95CBC /* AddItemButtonCollectionViewCell.swift */; };
 		B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */; };
 		B8CF0D851FBF4E12002FE457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF0D831FBF4E12002FE457 /* Main.storyboard */; };
 		B8CF0D881FBF4E12002FE457 /* GarageSale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8CF0D861FBF4E12002FE457 /* GarageSale.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 		B8925BDD1FD66D840017EA3E /* GarageSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSale.swift; sourceTree = "<group>"; };
 		B8925BDF1FD9184C0017EA3E /* SaleOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		B899AD6E1FDDDC9200C95CBC /* AddToCalendarActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCalendarActivity.swift; sourceTree = "<group>"; };
+		B899AD701FDE158A00C95CBC /* AddItemButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8CF0D7C1FBF4E12002FE457 /* GarageSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarageSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF0D7F1FBF4E12002FE457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8CF0D841FBF4E12002FE457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				B8CF0DB51FC556F5002FE457 /* AddItemCollectionViewCell.swift */,
 				B8CF0DB71FC66773002FE457 /* VerifyDetailsViewController.swift */,
 				B8CF0DB91FC6B2AC002FE457 /* VerifyDetailsCollectionViewCell.swift */,
+				B899AD701FDE158A00C95CBC /* AddItemButtonCollectionViewCell.swift */,
 			);
 			path = "Creation Flow";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				B8CF0D991FBF5607002FE457 /* SaleListViewController.swift in Sources */,
 				B8CF0D801FBF4E12002FE457 /* AppDelegate.swift in Sources */,
 				B8CF0DAB1FC0F6F0002FE457 /* LocationSelectionViewController.swift in Sources */,
+				B899AD711FDE158A00C95CBC /* AddItemButtonCollectionViewCell.swift in Sources */,
 				B8D762481FC7647F00B22023 /* SaleDetailsViewController.swift in Sources */,
 				B8CF0DA91FBFF58D002FE457 /* MapSearchTableViewController.swift in Sources */,
 				B8925BDE1FD66D840017EA3E /* GarageSale.swift in Sources */,

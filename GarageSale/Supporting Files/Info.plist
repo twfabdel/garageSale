@@ -18,8 +18,23 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>To add garage sales to your calendar</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To upload images of items you want to sell</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To find garage sales near you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To find garage sales near you</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To upload images of items you want to sell</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -31,8 +46,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -40,21 +53,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To find garage sales near you</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To find garage sales near you</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To upload images of items you want to sell</string>
-	<key>NSCameraUsageDescription</key>
-	<string>To upload images of items you want to sell</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>To add garage sales to your calendar</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>googlechromes</string>
-		<string>comgooglemaps</string>
 	</array>
 </dict>
 </plist>
